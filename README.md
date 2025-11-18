@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>우리 봉사단 홈페이지</title>
+    <title>은빛금빛 봉사단 홈페이지(초안)</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Noto Sans KR 폰트 (선택 사항) -->
