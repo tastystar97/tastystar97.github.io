@@ -69,12 +69,13 @@
     <!-- 메인 콘텐츠 -->
     <main>
 
-        <!-- 히어로 섹션 (메인 배너) -->
+      <!-- 히어로 섹션 (메인 배너) -->
         <section id="home" class="relative bg-gray-900 text-white py-24 md:py-32 bg-cover bg-center bg-no-repeat" 
                  style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('asset/banner.jpg');">
             <div class="container mx-auto px-6 text-center relative z-10 flex flex-col items-center">
                 <!-- 텍스트 대신 메인 로고 이미지 사용 -->
-                <img src="asset/mainlogo.png" alt="은빛금빛 봉사단 메인 로고" class="max-w-full h-auto w-64 md:w-80 mb-4 drop-shadow-lg">
+                <!-- 로고 크기 변경: w-64/md:w-80 -> w-80/md:w-[32rem] -->
+                <img src="asset/mainlogo.png" alt="은빛금빛 봉사단 메인 로고" class="max-w-full h-auto w-80 md:w-[32rem] mb-6 drop-shadow-lg">
                 
                 <!-- 영문 명칭 추가 -->
                 <p class="text-xl md:text-2xl font-light mb-8 drop-shadow-md tracking-wider text-gray-100">
@@ -234,6 +235,7 @@
 </body>
 
 </html>
+
 
 
 
