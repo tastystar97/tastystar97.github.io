@@ -69,13 +69,18 @@
     <!-- 메인 콘텐츠 -->
     <main>
 
- <!-- 히어로 섹션 (메인 배너) : 배경 이미지 적용 -->
-        <!-- linear-gradient를 사용하여 이미지 위에 어두운 틴트를 주어 글씨 가독성을 높임 -->
+        <!-- 히어로 섹션 (메인 배너) -->
         <section id="home" class="relative bg-gray-900 text-white py-24 md:py-32 bg-cover bg-center bg-no-repeat" 
                  style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('asset/banner.jpg');">
-            <div class="container mx-auto px-6 text-center relative z-10">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-md">함께 만드는 따뜻한 세상</h1>
-                <p class="text-lg md:text-xl mb-8 drop-shadow-md">은빛금빛 봉사단은 이웃과 함께하며 더 나은 사회를 만들어갑니다.</p>
+            <div class="container mx-auto px-6 text-center relative z-10 flex flex-col items-center">
+                <!-- 텍스트 대신 메인 로고 이미지 사용 -->
+                <img src="asset/mainlogo.png" alt="은빛금빛 봉사단 메인 로고" class="max-w-full h-auto w-64 md:w-80 mb-4 drop-shadow-lg">
+                
+                <!-- 영문 명칭 추가 -->
+                <p class="text-xl md:text-2xl font-light mb-8 drop-shadow-md tracking-wider text-gray-100">
+                    Silver-Gold Volunteer Corps
+                </p>
+                
                 <a href="#join" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 shadow-lg inline-block">
                     지금 참여하기
                 </a>
@@ -229,6 +234,7 @@
 </body>
 
 </html>
+
 
 
 
