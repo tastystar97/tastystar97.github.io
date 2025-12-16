@@ -60,7 +60,7 @@
         transition: max-height 0.3s ease-in-out;
       }
       
-      /* 슬라이드 이미지 스타일 */
+      /* 슬라이드 이미지 스타일 (수정됨: 속도 0.5s로 변경) */
       .slide-image {
           position: absolute;
           top: 0;
@@ -69,7 +69,8 @@
           height: 100%;
           background-size: cover;
           background-position: center;
-          transition: opacity 1.5s ease-in-out;
+          /* 기존 1.5s에서 0.5s로 변경하여 반응 속도 향상 */
+          transition: opacity 0.5s ease-in-out;
           opacity: 0;
           z-index: 0;
       }
@@ -92,6 +93,7 @@
     </style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-800">
+<!-- 이벤트 팝업 (수정없음) -->
 <div id="event-popup" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-60 hidden backdrop-blur-sm p-4">
     <div class="bg-white rounded-xl shadow-2xl w-full max-w-md max-h-[90vh] flex flex-col overflow-hidden relative transform transition-all scale-100">
         
@@ -165,8 +167,8 @@
     <!-- 메인 콘텐츠 -->
     <main>
 
-     <!-- 히어로 섹션 (수정됨: 높이 h-[85vh]로 축소, 콘텐츠 위치 상향 조정) -->
-        <section id="home" class="relative bg-gray-900 text-white h-[85vh] min-h-[600px] flex flex-col justify-center overflow-hidden">    
+     <!-- 히어로 섹션 (수정됨: 높이 h-[75vh]로 축소) -->
+        <section id="home" class="relative bg-gray-900 text-white h-[75vh] min-h-[500px] flex flex-col justify-center overflow-hidden">    
             <!-- 슬라이드 배경 이미지들 -->
             <div class="slide-image active" style="background-image: url('asset/banner1.png');"></div>
             <div class="slide-image" style="background-image: url('asset/banner2.png');"></div>
@@ -177,8 +179,8 @@
             <div class="overlay-tint"></div>
             
             <!-- 콘텐츠 -->
-            <!-- -mt-16 클래스 추가: 로고와 텍스트를 위로 끌어올림 -->
-            <div class="container mx-auto px-6 text-center relative z-20 flex flex-col items-center -mt-16">
+            <!-- 수정됨: -mt-32 클래스로 로고 위치를 더 위로 올림 -->
+            <div class="container mx-auto px-6 text-center relative z-20 flex flex-col items-center -mt-48">
                 <img src="asset/mainlogo.png" alt="은빛금빛 봉사단 메인 로고" class="max-w-full h-auto w-80 md:w-[32rem] mb-6 drop-shadow-lg">
                 <p class="text-xl md:text-2xl font-light mb-8 drop-shadow-md tracking-wider text-gray-100">
                     Silver-Gold Volunteer Corps
