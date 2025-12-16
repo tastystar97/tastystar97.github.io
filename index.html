@@ -165,10 +165,8 @@
     <!-- 메인 콘텐츠 -->
     <main>
 
-    <main>
-
-     <!-- 히어로 섹션 (수정됨: min-h-screen, png 확장자, 슬라이드 점 추가) -->
-        <section id="home" class="relative bg-gray-900 text-white min-h-screen flex flex-col justify-center overflow-hidden">    
+     <!-- 히어로 섹션 (수정됨: 높이 h-[85vh]로 축소, 콘텐츠 위치 상향 조정) -->
+        <section id="home" class="relative bg-gray-900 text-white h-[85vh] min-h-[600px] flex flex-col justify-center overflow-hidden">    
             <!-- 슬라이드 배경 이미지들 -->
             <div class="slide-image active" style="background-image: url('asset/banner1.png');"></div>
             <div class="slide-image" style="background-image: url('asset/banner2.png');"></div>
@@ -179,7 +177,8 @@
             <div class="overlay-tint"></div>
             
             <!-- 콘텐츠 -->
-            <div class="container mx-auto px-6 text-center relative z-20 flex flex-col items-center">
+            <!-- -mt-16 클래스 추가: 로고와 텍스트를 위로 끌어올림 -->
+            <div class="container mx-auto px-6 text-center relative z-20 flex flex-col items-center -mt-16">
                 <img src="asset/mainlogo.png" alt="은빛금빛 봉사단 메인 로고" class="max-w-full h-auto w-80 md:w-[32rem] mb-6 drop-shadow-lg">
                 <p class="text-xl md:text-2xl font-light mb-8 drop-shadow-md tracking-wider text-gray-100">
                     Silver-Gold Volunteer Corps
@@ -189,7 +188,7 @@
                 </a>
             </div>
 
-            <!-- 슬라이드 인디케이터 (점) 추가된 부분 -->
+            <!-- 슬라이드 인디케이터 (점) -->
             <div id="slider-dots" class="absolute bottom-10 left-0 w-full flex justify-center gap-4 z-30">
                 <!-- JS로 동적 생성됨 -->
             </div>
@@ -454,8 +453,8 @@
         // 점 생성
         slides.forEach((_, index) => {
             const dot = document.createElement('button');
-            // 기본 스타일 (불투명도 50%)
-            dot.className = 'w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition-all duration-300 shadow-md';
+            // 수정됨: transition-all duration-150 (기존 300에서 150으로 속도 증가)
+            dot.className = 'w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition-all duration-150 shadow-md';
             dot.setAttribute('aria-label', `Slide ${index + 1}`);
             
             // 클릭 이벤트: 해당 슬라이드로 이동
@@ -530,5 +529,3 @@
 </body>
 
 </html>
-
-
