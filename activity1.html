@@ -19,18 +19,39 @@
 </head>
 <body class="font-sans bg-gray-50 text-gray-800 flex flex-col min-h-screen">
 
-    <!-- 헤더 -->
+    <!-- 헤더 (index.html과 통일) -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- 로고 -->
             <a href="index.html" class="text-2xl font-bold text-blue-600">
-                <img src="asset/mainlogo.png" alt="은빛금빛 봉사단" class="h-9 w-auto" onerror="this.style.display='none'; this.parentElement.innerText='은빛금빛 봉사단'">
+                <img src="asset/mainlogo2.png" alt="은빛금빛 봉사단" class="h-9 w-auto">
             </a>
+            
+            <!-- 데스크탑 메뉴 -->
             <div class="hidden md:flex space-x-6">
-                <a href="index.html" class="text-gray-600 hover:text-blue-600">홈으로</a>
+                <a href="index.html#home" class="text-gray-600 hover:text-blue-600">홈</a>
+                <a href="index.html#about" class="text-gray-600 hover:text-blue-600">봉사단 소개</a>
                 <a href="index.html#activities" class="text-blue-600 font-bold">활동 소식</a>
                 <a href="index.html#join" class="text-gray-600 hover:text-blue-600">참여 안내</a>
+                <a href="index.html#contact" class="text-gray-600 hover:text-blue-600">문의하기</a>
             </div>
+            
+            <!-- 모바일 메뉴 버튼 -->
+            <button id="mobile-menu-button" class="md:hidden flex items-center p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
         </nav>
+        
+        <!-- 모바일 메뉴 (숨겨진 상태) -->
+        <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0">
+            <a href="index.html#home" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600">홈</a>
+            <a href="index.html#about" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600">봉사단 소개</a>
+            <a href="index.html#activities" class="block px-6 py-3 text-blue-600 font-bold bg-gray-50">활동 소식</a>
+            <a href="index.html#join" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600">참여 안내</a>
+            <a href="index.html#contact" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600">문의하기</a>
+        </div>
     </header>
 
     <!-- 게시글 본문 영역 -->
@@ -99,3 +120,4 @@
 </body>
 
 </html>
+
