@@ -1,0 +1,102 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>활동 소식 - 행복한 빵 나눔터</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Noto Sans KR', 'Inter', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <!-- 헤더 -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600">
+                <img src="asset/mainlogo.png" alt="은빛금빛 봉사단" class="h-9 w-auto" onerror="this.style.display='none'; this.parentElement.innerText='은빛금빛 봉사단'">
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-blue-600">홈으로</a>
+                <a href="index.html#activities" class="text-blue-600 font-bold">활동 소식</a>
+                <a href="index.html#join" class="text-gray-600 hover:text-blue-600">참여 안내</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 게시글 본문 영역 -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+        
+        <!-- 게시글 컨테이너 -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 md:p-10 relative">
+            
+            <!-- 게시글 헤더 -->
+            <div class="border-b border-gray-200 pb-4 mb-6">
+                <!-- 태그 색상을 노란색(yellow) 계열로 변경 -->
+                <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full mb-2 font-bold">봉사 활동</span>
+                <h1 id="post-title" class="text-2xl md:text-3xl font-bold mb-3 text-gray-900">고소한 냄새가 솔솔~ 행복한 빵 나눔터 후기</h1>
+                <div class="flex items-center text-sm text-gray-500">
+                    <span>작성자: 제빵봉사팀</span>
+                </div>
+            </div>
+
+            <!-- 게시글 내용 -->
+            <div id="post-content" class="prose max-w-none text-gray-700 leading-relaxed">
+                <!-- 이미지 -->
+                <div class="mb-8">
+                    <img src="asset/2.jpg" alt="제빵 봉사 활동 사진" class="w-full h-auto rounded-lg object-cover shadow-md">
+                    <p class="text-center text-sm text-gray-500 mt-2">▲ 정성스럽게 빵을 포장하고 있는 회원님들의 모습</p>
+                </div>
+
+                <p class="mb-4">
+                    안녕하세요, 은빛금빛 봉사단입니다.<br>
+                    매주 토요일은 우리 봉사단에서 가장 달콤한 냄새가 나는 날, 바로 '행복한 빵 나눔터'가 열리는 날입니다.
+                </p>
+                <p class="mb-4">
+                    이번 주에는 아이들이 특히 좋아하는 <strong>달콤한 단팥빵</strong>과 <strong>폭신한 카스테라</strong>를 메뉴로 선정했습니다.
+                    밀가루 반죽부터 발효, 굽기까지 회원님들의 손길이 닿지 않은 곳이 없답니다. 오븐에서 갓 구워진 빵 냄새가 봉사 센터를 가득 채우니 
+                    만드는 저희도 절로 미소가 지어졌습니다.
+                </p>
+                <p class="mb-4">
+                    완성된 빵 500여 개는 예쁘게 개별 포장하여 관내 지역 아동센터 3곳에 전달했습니다.
+                </p>
+                <div class="bg-gray-50 p-4 border-l-4 border-yellow-400 my-6 italic">
+                    "와! 맛있는 빵이다!"
+                </div>
+                <p class="mb-4">
+                    간식 시간을 기다리던 아이들이 빵을 보고 환호성을 지르며 달려오는 모습을 보니, 새벽부터 준비한 피로가 눈 녹듯 사라지는 것 같았습니다.
+                    아이들의 그 밝은 미소가 우리 봉사단에게는 가장 큰 선물이자 보람입니다.
+                </p>
+                <p>
+                    앞으로도 건강하고 맛있는 간식으로 이웃들에게 소소한 행복을 전하겠습니다.<br>
+                    재료 후원이나 봉사 참여는 언제든 환영합니다!
+                </p>
+            </div>
+
+            <!-- 하단 버튼 -->
+            <div class="border-t border-gray-200 mt-10 pt-6 flex justify-center">
+                <a href="index.html#activities" class="px-6 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition font-medium">
+                    목록으로 돌아가기
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-8 mt-auto">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">&copy; 2025 은빛금빛 봉사단. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
