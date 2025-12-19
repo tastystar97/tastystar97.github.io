@@ -16,18 +16,21 @@
         },
       }
     </script>
+    <style>
+      #mobile-menu {
+        transition: max-height 0.3s ease-in-out;
+      }
+    </style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-800 flex flex-col min-h-screen">
 
-    <!-- 헤더 (index.html과 통일) -->
+    <!-- 헤더 -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- 로고 -->
             <a href="index.html" class="text-2xl font-bold text-blue-600">
                 <img src="asset/mainlogo2.png" alt="은빛금빛 봉사단" class="h-9 w-auto">
             </a>
             
-            <!-- 데스크탑 메뉴 -->
             <div class="hidden md:flex space-x-6">
                 <a href="index.html#home" class="text-gray-600 hover:text-blue-600">홈</a>
                 <a href="index.html#about" class="text-gray-600 hover:text-blue-600">봉사단 소개</a>
@@ -36,7 +39,6 @@
                 <a href="index.html#contact" class="text-gray-600 hover:text-blue-600">문의하기</a>
             </div>
             
-            <!-- 모바일 메뉴 버튼 -->
             <button id="mobile-menu-button" class="md:hidden flex items-center p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -44,7 +46,6 @@
             </button>
         </nav>
         
-        <!-- 모바일 메뉴 (숨겨진 상태) -->
         <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0">
             <a href="index.html#home" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600">홈</a>
             <a href="index.html#about" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600">봉사단 소개</a>
@@ -53,15 +54,12 @@
             <a href="index.html#contact" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600">문의하기</a>
         </div>
     </header>
+
     <!-- 게시글 본문 영역 -->
     <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
-        
-        <!-- 게시글 컨테이너 -->
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 md:p-10 relative">
             
-            <!-- 게시글 헤더 -->
             <div class="border-b border-gray-200 pb-4 mb-6">
-                <!-- 태그 색상을 노란색(yellow) 계열로 변경 -->
                 <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full mb-2 font-bold">봉사 활동</span>
                 <h1 id="post-title" class="text-2xl md:text-3xl font-bold mb-3 text-gray-900">고소한 냄새가 솔솔~ 행복한 빵 나눔터 후기</h1>
                 <div class="flex items-center text-sm text-gray-500">
@@ -69,9 +67,7 @@
                 </div>
             </div>
 
-            <!-- 게시글 내용 -->
             <div id="post-content" class="prose max-w-none text-gray-700 leading-relaxed">
-                <!-- 이미지 -->
                 <div class="mb-8">
                     <img src="asset/2.jpg" alt="제빵 봉사 활동 사진" class="w-full h-auto rounded-lg object-cover shadow-md">
                     <p class="text-center text-sm text-gray-500 mt-2">▲ 정성스럽게 빵을 포장하고 있는 회원님들의 모습</p>
@@ -102,11 +98,26 @@
                 </p>
             </div>
 
-            <!-- 하단 버튼 -->
-            <div class="border-t border-gray-200 mt-10 pt-6 flex justify-center">
-                <a href="index.html#activities" class="px-6 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition font-medium">
-                    목록으로 돌아가기
-                </a>
+            <!-- 하단 버튼 (수정됨: 심플한 디자인) -->
+            <div class="border-t border-gray-200 mt-12 pt-8">
+                <div class="flex justify-between items-center gap-4">
+                    <!-- 이전글 -->
+                    <a href="activity1.html" class="w-24 md:w-32 group flex items-center justify-start px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-gray-700 hover:border-blue-400 hover:text-blue-600 hover:shadow-md transition-all duration-300">
+                        <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        <span class="text-sm font-bold ml-2">이전글</span>
+                    </a>
+
+                    <!-- 목록으로 -->
+                    <a href="index.html#activities" class="px-6 py-2.5 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition font-bold text-sm">
+                        목록으로
+                    </a>
+
+                    <!-- 다음글 -->
+                    <a href="activity3.html" class="w-24 md:w-32 group flex items-center justify-end px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-gray-700 hover:border-blue-400 hover:text-blue-600 hover:shadow-md transition-all duration-300">
+                        <span class="text-sm font-bold mr-2">다음글</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
             </div>
 
         </div>
@@ -118,6 +129,22 @@
         </div>
     </footer>
 
-</body>
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
+        menuButton.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('max-h-0');
+            if (isHidden) {
+                mobileMenu.classList.remove('max-h-0');
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+            } else {
+                mobileMenu.style.maxHeight = '0';
+                mobileMenu.addEventListener('transitionend', () => {
+                    mobileMenu.classList.add('max-h-0');
+                }, { once: true });
+            }
+        });
+    </script>
+</body>
 </html>
