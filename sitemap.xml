@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
     <!-- 메인 페이지 -->
     <url>
-        <loc>http://agauvolunteer.kro.kr/</loc>
+        <loc>https://agauvolunteer.kro.kr/</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>http://agauvolunteer.kro.kr/index.html</loc>
+        <loc>https://agauvolunteer.kro.kr/index.html</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
@@ -16,19 +16,19 @@
     
     <!-- 활동 소식 페이지 -->
     <url>
-        <loc>http://agauvolunteer.kro.kr/activity1.html</loc>
+        <loc>https://agauvolunteer.kro.kr/activity1.html</loc>
         <lastmod>2025-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://agauvolunteer.kro.kr/activity2.html</loc>
+        <loc>https://agauvolunteer.kro.kr/activity2.html</loc>
         <lastmod>2025-11-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://agauvolunteer.kro.kr/activity3.html</loc>
+        <loc>https://agauvolunteer.kro.kr/activity3.html</loc>
         <lastmod>2025-10-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -36,19 +36,19 @@
 
     <!-- 정책 페이지 -->
     <url>
-        <loc>http://agauvolunteer.kro.kr/policy.html</loc>
+        <loc>https://agauvolunteer.kro.kr/policy.html</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>http://agauvolunteer.kro.kr/privacy.html</loc>
+        <loc>https://agauvolunteer.kro.kr/privacy.html</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>http://agauvolunteer.kro.kr/copyright.html</loc>
+        <loc>https://agauvolunteer.kro.kr/copyright.html</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
