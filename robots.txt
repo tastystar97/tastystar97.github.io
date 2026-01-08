@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://agauvolunteer.kro.kr/sitemap.xml
+Sitemap: https://agauvolunteer.kro.kr/sitemap.xml
