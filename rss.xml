@@ -3,39 +3,40 @@
 <channel>
     <!-- 사이트 기본 정보 -->
     <title>은빛금빛 봉사단</title>
-    <link>http://agauvolunteer.kro.kr/</link>
+    <link>https://agauvolunteer.kro.kr/</link>
     <description>이웃과 함께하며 더 나은 사회를 만들어가는 은빛금빛 봉사단 활동 소식입니다.</description>
     <language>ko</language>
 
     <!-- 게시글 1: 활동 소식 1 -->
     <item>
         <title>따뜻한 겨울나기 연탄 나눔 후기</title>
-        <link>http://agauvolunteer.kro.kr/activity1.html</link>
+        <link>https://agauvolunteer.kro.kr/activity1.html</link>
         <description>지역 내 독거 어르신들을 위한 연탄 2,000장 나눔 활동을 진행했습니다.</description>
         <pubDate>Sat, 15 Nov 2025 09:00:00 +0900</pubDate>
         <author>은빛금빛 봉사단</author>
-        <guid>http://agauvolunteer.kro.kr/activity1.html</guid>
+        <guid>https://agauvolunteer.kro.kr/activity1.html</guid>
     </item>
 
     <!-- 게시글 2: 활동 소식 2 -->
     <item>
         <title>행복한 빵 나눔터 후기</title>
-        <link>http://agauvolunteer.kro.kr/activity2.html</link>
+        <link>https://agauvolunteer.kro.kr/activity2.html</link>
         <description>지역 아동센터 아이들을 위해 단팥빵과 카스테라를 만들어 전달했습니다.</description>
         <pubDate>Sat, 01 Nov 2025 10:00:00 +0900</pubDate>
         <author>은빛금빛 봉사단</author>
-        <guid>http://agauvolunteer.kro.kr/activity2.html</guid>
+        <guid>https://agauvolunteer.kro.kr/activity2.html</guid>
     </item>
 
     <!-- 게시글 3: 활동 소식 3 -->
     <item>
         <title>깨끗한 우리 동네 만들기 (환경 정화)</title>
-        <link>http://agauvolunteer.kro.kr/activity3.html</link>
+        <link>https://agauvolunteer.kro.kr/activity3.html</link>
         <description>수동천 산책로와 근린공원 일대 쓰레기 수거 및 꽃밭 조성 활동을 진행했습니다.</description>
         <pubDate>Mon, 20 Oct 2025 14:00:00 +0900</pubDate>
         <author>은빛금빛 봉사단</author>
-        <guid>http://agauvolunteer.kro.kr/activity3.html</guid>
+        <guid>https://agauvolunteer.kro.kr/activity3.html</guid>
     </item>
 
 </channel>
+
 </rss>
