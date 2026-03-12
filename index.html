@@ -226,6 +226,21 @@
             </div>
         </section>
 
+
+        <!-- 멤버 이름 흐르는 띠지 (Marquee) 추가 부분 -->
+        <div class="bg-blue-800 text-white py-3 overflow-hidden flex whitespace-nowrap marquee-wrapper relative z-20 shadow-inner cursor-default">
+            <!-- 그라데이션 오버레이 (좌우 끝을 부드럽게 가려주는 효과) -->
+            <div class="absolute left-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-r from-blue-800 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-l from-blue-800 to-transparent z-10 pointer-events-none"></div>
+            
+            <!-- 첫 번째 텍스트 세트 (members.js 데이터를 통해 JS로 동적 생성됨) -->
+            <div id="marquee-content-1" class="animate-marquee flex items-center min-w-full justify-around shrink-0 px-4">
+            </div>
+            <!-- 두 번째 텍스트 세트 (무한 스크롤 연결용, JS로 동적 생성됨) -->
+            <div id="marquee-content-2" class="animate-marquee flex items-center min-w-full justify-around shrink-0 px-4" aria-hidden="true">
+            </div>
+        </div>
+        
         <!-- 봉사단 소개 섹션 -->
         <section id="about" class="py-20 bg-white relative overflow-hidden">
             <div class="absolute top-0 left-0 w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
@@ -603,3 +618,4 @@
     </script>
 </body>
 </html>
+
