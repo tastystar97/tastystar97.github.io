@@ -89,6 +89,18 @@
           background: rgba(0, 0, 0, 0.5); /* 검은색 반투명 */
           z-index: 1;
       }
+
+      /* 멤버 이름 흐르는 애니메이션 (Marquee) */
+      @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+      }
+      .animate-marquee {
+          animation: marquee 35s linear infinite;
+      }
+      .marquee-wrapper:hover .animate-marquee {
+          animation-play-state: paused;
+      }
     </style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-800">
@@ -226,7 +238,6 @@
             </div>
         </section>
 
-
         <!-- 멤버 이름 흐르는 띠지 (Marquee) 추가 부분 -->
         <div class="bg-blue-800 text-white py-3 overflow-hidden flex whitespace-nowrap marquee-wrapper relative z-20 shadow-inner cursor-default">
             <!-- 그라데이션 오버레이 (좌우 끝을 부드럽게 가려주는 효과) -->
@@ -240,7 +251,7 @@
             <div id="marquee-content-2" class="animate-marquee flex items-center min-w-full justify-around shrink-0 px-4" aria-hidden="true">
             </div>
         </div>
-        
+
         <!-- 봉사단 소개 섹션 -->
         <section id="about" class="py-20 bg-white relative overflow-hidden">
             <div class="absolute top-0 left-0 w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
@@ -468,8 +479,38 @@
         </div>
     </footer>
     
+  <!-- 멤버 데이터 외부 파일 로드 -->
+  <script src="asset/members.js"></script>
+    
   <!-- 스크립트: 모바일 메뉴, 메인 이미지 슬라이드, 이벤트 팝업(슬라이드) -->
     <script>
+        // 외부 파일(members.js)의 데이터를 바탕으로 Marquee HTML 동적 생성
+        function renderMarquee() {
+            const marquee1 = document.getElementById('marquee-content-1');
+            const marquee2 = document.getElementById('marquee-content-2');
+            
+            // members.js가 정상적으로 로드되지 않았을 경우를 대비한 방어 코드
+            if (!marquee1 || !marquee2 || typeof volunteerMembers === 'undefined') return;
+
+            let htmlContent = '<span class="mx-5 font-bold text-yellow-300 text-lg">✨ 함께하는 봉사단원</span>';
+            
+            // 배열에 있는 이름들을 순회하며 HTML 텍스트 조립
+            volunteerMembers.forEach((member, index) => {
+                htmlContent += `<span class="mx-5 font-medium">${member}</span>`;
+                // 마지막 멤버가 아니면 사이사이에 구분점(●) 추가
+                if (index < volunteerMembers.length - 1) {
+                    htmlContent += `<span class="text-blue-400 text-xs">●</span>`;
+                }
+            });
+
+            // 조립된 HTML을 컨테이너에 삽입
+            marquee1.innerHTML = htmlContent;
+            marquee2.innerHTML = htmlContent;
+        }
+        
+        // 함수 실행
+        renderMarquee();
+
         // 1. 모바일 메뉴 스크립트
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -618,4 +659,3 @@
     </script>
 </body>
 </html>
-
