@@ -254,8 +254,9 @@
         const activeMain = document.getElementById('main-content');
         if(!activeMain) return;
 
-        // 1. Marquee 띠지 렌더링 로직
-        const members = ["김○원", "김○옥", "박○연", "이○문", "신○훈", "김○솔", "박○준", "김○만", "이○성", "조○하", "유○우"];
+// 1. Marquee 띠지 렌더링 로직
+        // members.js 파일에 있는 volunteerMembers 변수를 사용하도록 변경
+        const members = typeof volunteerMembers !== 'undefined' ? volunteerMembers : [];
         const mq1 = activeMain.querySelector('#marquee-content-1');
         const mq2 = activeMain.querySelector('#marquee-content-2');
         if (mq1 && mq2) {
