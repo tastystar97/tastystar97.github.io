@@ -1,0 +1,45 @@
+<div id="page-activity2" class="flex flex-col flex-grow w-full py-8 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 md:p-10">
+            <!-- 헤더 영역 -->
+            <div class="border-b pb-4 mb-6">
+                <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full mb-2">봉사 활동</span>
+                <h1 class="text-2xl md:text-3xl font-bold mb-3">행복한 빵 나눔터 후기</h1>
+            </div>
+            
+            <div class="prose max-w-none text-gray-700 leading-relaxed mb-8">
+                <!-- 활동 이미지 -->
+                <img src="asset/2-1.jpg" onerror="this.src='https://via.placeholder.com/800x400'" alt="행복한 빵 나눔터 활동" class="w-full h-auto rounded-lg object-cover mb-6 shadow-sm">
+                
+                <!-- 활동 내용 -->
+                <p class="mb-4">
+                    매주 토요일은 은빛금빛 봉사단의 '행복한 빵 나눔터'가 열리는 날입니다. 이번 주에는 정성껏 구운 달콤한 단팥빵과 부드러운 카스테라를 지역 아동센터 아이들에게 전달했습니다.
+                </p>
+                <p class="mb-4">
+                    이른 아침부터 빵 굽는 냄새로 가득했던 나눔터에는 봉사단원들의 웃음꽃이 피어났습니다. 밀가루를 반죽하고 오븐에서 갓 구운 빵을 포장하며, 아이들이 맛있게 먹을 모습을 상상하니 피로도 금세 잊을 수 있었습니다.
+                </p>
+                <p class="mb-4">
+                    앞으로도 우리 아이들에게 건강하고 맛있는 간식을 전하며, 따뜻한 마음을 나누는 행복한 빵 나눔터 활동을 꾸준히 이어가겠습니다. 주말에도 기꺼이 시간을 내어 함께 땀 흘려주신 단원 여러분, 정말 감사합니다!
+                </p>
+            </div>
+            
+            <!-- 하단 네비게이션 버튼 -->
+            <div class="border-t mt-10 pt-8 flex justify-between items-center">
+                <!-- 이전글 (activity1.html 로드) -->
+                <a href="?page=activity1" hx-get="activity1.html" hx-target="#main-content" hx-push-url="?page=activity1" hx-swap="innerHTML show:window:top" class="px-4 py-2 bg-white border border-gray-300 rounded-md text-sm text-gray-600 hover:text-blue-600 hover:border-blue-600 font-bold transition-colors flex items-center">
+                    <span class="mr-1">&larr;</span> 이전글
+                </a>
+                
+                <!-- 목록으로 (home.html 로드) -->
+                <a href="?page=home" hx-get="home.html" hx-target="#main-content" hx-push-url="?page=home" hx-swap="innerHTML show:window:top" class="px-6 py-2 bg-gray-100 rounded-md hover:bg-gray-200 font-bold text-sm text-gray-700 transition-colors">
+                    목록으로
+                </a>
+                
+                <!-- 다음글 (현재는 index.html 안에 있는 activity3를 가리킵니다. 추후 분리 시 hx-get="activity3.html"로 수정하세요) -->
+                <a href="?page=activity3" hx-get="index.html" hx-select="#page-activity3" hx-target="#main-content" hx-push-url="?page=activity3" hx-swap="innerHTML show:window:top" class="px-4 py-2 bg-white border border-gray-300 rounded-md text-sm text-gray-600 hover:text-blue-600 hover:border-blue-600 font-bold transition-colors flex items-center">
+                    다음글 <span class="ml-1">&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

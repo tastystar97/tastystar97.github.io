@@ -1,0 +1,222 @@
+<div id="page-home" class="flex flex-col flex-grow w-full">
+            
+    <!-- 이벤트 팝업 (발대식 포함 3개 슬라이드) -->
+    <div id="event-popup" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-60 hidden backdrop-blur-sm p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md max-h-[90vh] flex flex-col overflow-hidden relative">
+            <div class="relative w-full overflow-hidden flex-grow flex flex-col bg-white">
+                <div id="popup-track" class="flex transition-transform duration-300 ease-in-out w-full h-full">
+                    
+                    <!-- Slide 1 : 모집 -->
+                    <div class="popup-slide w-full flex-shrink-0 flex flex-col max-h-[calc(90vh-3.5rem)] overflow-y-auto">
+                        <div class="relative w-full bg-gray-100 flex-shrink-0">
+                            <img src="asset/event1.png" alt="봉사단 모집" onerror="this.src='https://via.placeholder.com/400x300?text=Event+1'" class="w-full h-auto max-h-[50vh] object-contain mx-auto">
+                            <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">NOTICE</div>
+                        </div>
+                        <div class="px-6 pt-5 pb-12 bg-white flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">신규 봉사단원 모집</h3>
+                            <p class="text-gray-600 text-sm">따뜻한 변화를 만들어가요!</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 : 후원금 -->
+                    <div class="popup-slide w-full flex-shrink-0 flex flex-col max-h-[calc(90vh-3.5rem)] overflow-y-auto">
+                        <div class="relative w-full bg-gray-100 flex-shrink-0">
+                            <img src="asset/event2.png" alt="후원금 모집" onerror="this.src='https://via.placeholder.com/400x300?text=Event+2'" class="w-full h-auto max-h-[50vh] object-contain mx-auto">
+                            <div class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">NEW</div>
+                        </div>
+                        <div class="px-6 pt-5 pb-12 bg-white flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">후원금 모집</h3>
+                            <p class="text-gray-600 text-sm">투명하게 이웃을 돕는 데 사용됩니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 : 발대식 안내 -->
+                    <div class="popup-slide w-full flex-shrink-0 flex flex-col max-h-[calc(90vh-3.5rem)] overflow-y-auto">
+                        <div class="relative w-full bg-gray-100 flex-shrink-0">
+                            <img src="asset/event3.png" alt="발대식 안내" onerror="this.src='https://via.placeholder.com/400x300?text=Ceremony'" class="w-full h-auto max-h-[50vh] object-contain mx-auto">
+                            <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">EVENT</div>
+                        </div>
+                        <div class="px-6 pt-5 pb-12 bg-white flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">은빛금빛 봉사단 발대식 안내</h3>
+                            <p class="text-gray-600 text-sm">새로운 시작을 알리는 발대식에 여러분을 초대합니다!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 팝업 컨트롤 -->
+                <button id="popup-prev" class="absolute left-3 top-[35%] transform -translate-y-1/2 bg-white rounded-full p-2.5 shadow-md">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="popup-next" class="absolute right-3 top-[35%] transform -translate-y-1/2 bg-white rounded-full p-2.5 shadow-md">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                <div class="absolute bottom-0 left-0 w-full flex justify-center gap-2 z-10 bg-white bg-opacity-80 pt-4 pb-4">
+                    <button class="popup-dot w-5 h-2 rounded-full bg-blue-600"></button>
+                    <button class="popup-dot w-2 h-2 rounded-full bg-gray-300"></button>
+                    <button class="popup-dot w-2 h-2 rounded-full bg-gray-300"></button>
+                </div>
+            </div>
+            <div class="bg-gray-50 border-t px-6 py-3 flex justify-between items-center text-sm">
+                <label class="flex items-center cursor-pointer">
+                    <input type="checkbox" id="dont-show-today" class="mr-2 rounded text-blue-600"> 오늘 하루 안보기
+                </label>
+                <button id="close-popup-btn" class="font-bold underline">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 메인 히어로 배너 -->
+    <section class="relative bg-gray-900 text-white h-[75vh] min-h-[500px] flex flex-col justify-center overflow-hidden">    
+        <div class="slide-image active" style="background-image: url('asset/banner0.png');"></div>
+        <div class="slide-image" style="background-image: url('asset/banner2.png');"></div>
+        <div class="slide-image" style="background-image: url('asset/banner3.png');"></div>
+        <div class="overlay-tint"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-20 flex flex-col items-center -mt-48">
+            <img src="asset/mainlogo.png" alt="메인 로고" onerror="this.src='https://via.placeholder.com/300x100?text=Logo'" class="max-w-full h-auto w-80 mb-6">
+            <p class="text-xl font-light mb-8 text-gray-100">Silver-Gold Volunteer Corps</p>
+            <a href="https://forms.gle/YEhHgNQtrdf1qpnBA" target="_blank" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg">지금 참여하기</a>
+        </div>
+        <div id="slider-dots" class="absolute bottom-10 left-0 w-full flex justify-center gap-4 z-30"></div>
+    </section>
+
+    <!-- 흐르는 띠지 -->
+    <div class="bg-blue-800 text-white py-3 overflow-hidden flex whitespace-nowrap marquee-wrapper relative z-20 shadow-inner">
+        <div id="marquee-content-1" class="animate-marquee flex items-center min-w-full justify-around shrink-0 px-4"></div>
+        <div id="marquee-content-2" class="animate-marquee flex items-center min-w-full justify-around shrink-0 px-4" aria-hidden="true"></div>
+    </div>
+
+    <!-- 최신 활동 소식 -->
+    <section class="py-20 bg-gray-50 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm">Activities</span>
+                <h2 class="text-3xl font-bold mt-2">최신 활동 소식</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 카드 1 (HTMX 라우팅 적용) -->
+                <a href="?page=activity1" hx-get="index.html" hx-select="#page-activity1" hx-target="#main-content" hx-push-url="?page=activity1" hx-swap="innerHTML show:window:top" class="block bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all cursor-pointer">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="asset/1.jpg" onerror="this.src='https://via.placeholder.com/400x300'" class="w-full h-full object-cover">
+                        <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">나눔</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">따뜻한 겨울나기 연탄 나눔</h3>
+                        <p class="text-gray-600 text-sm mb-4">지역 어르신들의 따뜻한 겨울을 위해 연탄을 전달했습니다.</p>
+                        <span class="text-blue-600 font-semibold">자세히 보기 &rarr;</span>
+                    </div>
+                </a>
+
+                <!-- 카드 2 (HTMX 라우팅 적용) -->
+                <a href="?page=activity2" hx-get="index.html" hx-select="#page-activity2" hx-target="#main-content" hx-push-url="?page=activity2" hx-swap="innerHTML show:window:top" class="block bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all cursor-pointer">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="asset/2.jpg" onerror="this.src='https://via.placeholder.com/400x300'" class="w-full h-full object-cover">
+                        <div class="absolute top-0 right-0 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">봉사</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">행복한 빵 나눔터</h3>
+                        <p class="text-gray-600 text-sm mb-4">지역 아동센터 아이들과 달콤한 빵을 나누는 시간을 가졌습니다.</p>
+                        <span class="text-blue-600 font-semibold">자세히 보기 &rarr;</span>
+                    </div>
+                </a>
+                
+                <!-- 카드 3 (HTMX 라우팅 적용) -->
+                <a href="?page=activity3" hx-get="index.html" hx-select="#page-activity3" hx-target="#main-content" hx-push-url="?page=activity3" hx-swap="innerHTML show:window:top" class="block bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all cursor-pointer">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="asset/3.jpg" onerror="this.src='https://via.placeholder.com/400x300'" class="w-full h-full object-cover">
+                        <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">환경</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">깨끗한 우리 동네 만들기</h3>
+                        <p class="text-gray-600 text-sm mb-4">가을맞이 대청소! 산책로 쓰레기를 수거하고 꽃밭을 조성했습니다.</p>
+                        <span class="text-blue-600 font-semibold">자세히 보기 &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 홈 화면 전용 스크립트 (HTMX로 로드될 때마다 실행됨) -->
+    <script>
+    (function(){
+        const activeMain = document.getElementById('main-content');
+        if(!activeMain) return;
+
+        // 1. Marquee 띠지 렌더링 로직
+        const members = ["김○원", "김○옥", "박○연", "이○문", "신○훈", "김○솔", "박○준", "김○만", "이○성", "조○하", "유○우"];
+        const mq1 = activeMain.querySelector('#marquee-content-1');
+        const mq2 = activeMain.querySelector('#marquee-content-2');
+        if (mq1 && mq2) {
+            let html = '<span class="mx-5 font-bold text-yellow-300 text-lg">✨ 함께하는 봉사단원</span>';
+            members.forEach((m, i) => {
+                html += `<span class="mx-5 font-medium">${m}</span>`;
+                if(i < members.length - 1) html += `<span class="text-blue-400 text-xs">●</span>`;
+            });
+            mq1.innerHTML = html; mq2.innerHTML = html;
+        }
+
+        // 2. 히어로 배너 슬라이더
+        const slides = activeMain.querySelectorAll('.slide-image');
+        const dotsContainer = activeMain.querySelector('#slider-dots');
+        if(slides.length > 0 && dotsContainer) {
+            let cSlide = 0;
+            dotsContainer.innerHTML = ''; // 초기화
+            slides.forEach((_, i) => {
+                let d = document.createElement('button');
+                d.className = i===0 ? 'w-8 h-3 rounded-full bg-white opacity-100 transition-all' : 'w-3 h-3 rounded-full bg-white opacity-50 transition-all';
+                d.onclick = () => {
+                    slides[cSlide].classList.remove('active');
+                    dotsContainer.children[cSlide].className = 'w-3 h-3 rounded-full bg-white opacity-50 transition-all';
+                    cSlide = i;
+                    slides[cSlide].classList.add('active');
+                    dotsContainer.children[cSlide].className = 'w-8 h-3 rounded-full bg-white opacity-100 transition-all';
+                };
+                dotsContainer.appendChild(d);
+            });
+            setInterval(() => {
+                if(!document.contains(dotsContainer)) return; // 페이지 변경 시 인터벌 안전종료
+                slides[cSlide].classList.remove('active');
+                dotsContainer.children[cSlide].className = 'w-3 h-3 rounded-full bg-white opacity-50 transition-all';
+                cSlide = (cSlide + 1) % slides.length;
+                slides[cSlide].classList.add('active');
+                dotsContainer.children[cSlide].className = 'w-8 h-3 rounded-full bg-white opacity-100 transition-all';
+            }, 4000);
+        }
+
+        // 3. 팝업 슬라이더 로직
+        const popup = activeMain.querySelector('#event-popup');
+        if (popup) {
+            // 오늘 하루 안보기 체크
+            const hideDate = localStorage.getItem('hidePopupDate');
+            const today = new Date().toISOString().split('T')[0];
+            if (hideDate !== today) popup.classList.remove('hidden');
+
+            const track = activeMain.querySelector('#popup-track');
+            const pSlides = activeMain.querySelectorAll('.popup-slide');
+            const pDots = activeMain.querySelectorAll('.popup-dot');
+            let pIndex = 0;
+
+            const updatePopup = () => {
+                track.style.transform = `translateX(-${pIndex * 100}%)`;
+                pDots.forEach((dot, i) => {
+                    dot.className = i === pIndex 
+                        ? 'popup-dot w-5 h-2 rounded-full bg-blue-600 transition-all' 
+                        : 'popup-dot w-2 h-2 rounded-full bg-gray-300 transition-all';
+                });
+            };
+
+            activeMain.querySelector('#popup-prev').onclick = () => { pIndex = (pIndex - 1 + pSlides.length) % pSlides.length; updatePopup(); };
+            activeMain.querySelector('#popup-next').onclick = () => { pIndex = (pIndex + 1) % pSlides.length; updatePopup(); };
+            
+            activeMain.querySelector('#close-popup-btn').onclick = () => {
+                if (activeMain.querySelector('#dont-show-today').checked) {
+                    localStorage.setItem('hidePopupDate', today);
+                }
+                popup.classList.add('hidden');
+            };
+        }
+    })();
+    </script>
+</div>
