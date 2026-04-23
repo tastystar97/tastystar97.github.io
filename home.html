@@ -263,9 +263,19 @@
             let html = '<span class="mx-5 font-bold text-yellow-300 text-lg">✨ 함께하는 봉사단원</span>';
             members.forEach((m, i) => {
                 html += `<span class="mx-5 font-medium">${m}</span>`;
+if (mq1 && mq2) {
+            let html = '<span class="mx-5 font-bold text-yellow-300 text-lg">✨ 함께하는 봉사단원</span>';
+            members.forEach((m, i) => {
+                html += `<span class="mx-5 font-medium">${m}</span>`;
                 if(i < members.length - 1) html += `<span class="text-blue-400 text-xs">●</span>`;
             });
             mq1.innerHTML = html; mq2.innerHTML = html;
+
+            // 👇 새로 추가된 부분: 명단 수에 따라 애니메이션 속도를 동적으로 조절
+            // 멤버 1명당 0.8초의 시간을 부여하여 일정한 이동 속도를 유지합니다.
+            const animationTime = members.length * 0.8; 
+            mq1.style.animationDuration = `${animationTime}s`;
+            mq2.style.animationDuration = `${animationTime}s`;
         }
 
         // 2. 히어로 배너 슬라이더
