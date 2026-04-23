@@ -9,14 +9,13 @@
             <thead class="bg-blue-50 border-b border-blue-100">
                 <tr>
                     <th scope="col" class="px-6 py-4 text-sm font-bold text-gray-700">번호</th>
-                    <th scope="col" class="px-6 py-4 text-sm font-bold text-gray-700 text-left w-3/5">제목</th>
-                    <th scope="col" class="px-6 py-4 text-sm font-bold text-gray-700">작성자</th>
+                    <th scope="col" class="px-6 py-4 text-sm font-bold text-gray-700 text-left w-2/3">제목</th>
                     <th scope="col" class="px-6 py-4 text-sm font-bold text-gray-700">작성일</th>
                 </tr>
             </thead>
             <tbody id="article-board-list" class="divide-y divide-gray-100">
                 <tr>
-                    <td colspan="4" class="px-6 py-8 text-gray-400">
+                    <td colspan="3" class="px-6 py-8 text-gray-400">
                         기사 데이터를 불러오는 중입니다...
                     </td>
                 </tr>
@@ -51,7 +50,7 @@
 
                 // 데이터가 없을 경우
                 if (data.length === 0) {
-                    boardList.innerHTML = `<tr><td colspan="4" class="px-6 py-8 text-gray-500">등록된 기사가 없습니다.</td></tr>`;
+                    boardList.innerHTML = `<tr><td colspan="3" class="px-6 py-8 text-gray-500">등록된 기사가 없습니다.</td></tr>`;
                     return;
                 }
 
@@ -62,11 +61,10 @@
                     // 행 클릭 시 링크 이동
                     row.onclick = () => window.location.href = item.link;
 
-                    // 조회수(views) 데이터를 제거하고 4개의 열만 렌더링
+                    // 조회수(views)와 작성자(author) 데이터를 제거하고 3개의 열만 렌더링
                     row.innerHTML = `
                         <td class="px-6 py-4 text-sm text-gray-500">${item.id}</td>
-                        <td class="px-6 py-4 text-sm text-gray-800 text-left font-medium hover:text-blue-600 truncate max-w-xs md:max-w-md">${item.title}</td>
-                        <td class="px-6 py-4 text-sm text-gray-500">${item.author}</td>
+                        <td class="px-6 py-4 text-sm text-gray-800 text-left font-medium hover:text-blue-600 truncate max-w-xs md:max-w-xl">${item.title}</td>
                         <td class="px-6 py-4 text-sm text-gray-500">${item.date}</td>
                     `;
                     boardList.appendChild(row);
@@ -74,7 +72,7 @@
             })
             .catch(error => {
                 console.error('기사 로딩 실패:', error);
-                boardList.innerHTML = `<tr><td colspan="4" class="px-6 py-8 text-red-500 text-sm">게시글을 불러오는데 실패했습니다. 로컬 웹 서버 환경인지 확인해주세요.</td></tr>`;
+                boardList.innerHTML = `<tr><td colspan="3" class="px-6 py-8 text-red-500 text-sm">게시글을 불러오는데 실패했습니다. 로컬 웹 서버 환경인지 확인해주세요.</td></tr>`;
             });
     })();
 </script>
