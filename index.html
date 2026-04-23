@@ -117,35 +117,33 @@
     </main>
 
     <!-- 고정 푸터 영역 -->
-<footer id="footer" class="bg-gray-800 text-gray-400 py-8 mt-auto">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-6 gap-4">
+    <footer id="footer" class="bg-[#3a3a3a] text-gray-300 py-10 mt-auto">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-center gap-8 md:gap-20 mb-10">
                 
-                <div class="text-center md:text-left">
-                    <h3 class="text-xl font-bold text-white mb-2">은빛금빛봉사단</h3>
-                    <div class="text-sm leading-relaxed">
-                        <p>전화: <a href="tel:031.594.7100" class="text-green-400 font-bold hover:text-green-300 transition-colors">031.594.7100</a></p>
-                        <p>이메일: <a href="mailto:ywk556@gmail.com" class="hover:text-white transition-colors">ywk556@gmail.com</a></p>
+                <div class="flex flex-col items-center md:items-start">
+                    <a href="tel:031.594.7100" class="text-4xl md:text-[2.75rem] font-bold text-[#56b98e] tracking-tight mb-4 hover:text-[#76d4ac] transition-colors">
+                        031.594.7100
+                    </a>
+                    
+                    <div class="flex gap-4 text-[13px] font-medium text-gray-400">
+                        <a href="?page=policy" hx-get="policy.html" hx-target="#main-content" hx-push-url="?page=policy" hx-swap="innerHTML show:window:top" class="hover:text-white transition-colors">이용약관</a>
+                        <a href="?page=privacy" hx-get="privacy.html" hx-target="#main-content" hx-push-url="?page=privacy" hx-swap="innerHTML show:window:top" class="hover:text-white transition-colors">개인정보처리방침</a>
+                        <a href="?page=copyright" hx-get="copyright.html" hx-target="#main-content" hx-push-url="?page=copyright" hx-swap="innerHTML show:window:top" class="hover:text-white transition-colors">저작권안내</a>
                     </div>
                 </div>
 
-                <div class="text-center md:text-right mt-4 md:mt-0">
-                    <div class="text-sm leading-relaxed">
-                        <p class="text-yellow-400 font-bold mb-1">후원계좌 : 351-1388-8221-63 / 농협</p>
-                        <p class="text-gray-300">예금주: 은빛 금빛 봉사단</p>
-                    </div>
+                <div class="flex flex-col items-center md:items-start text-[14px] leading-relaxed text-gray-300 space-y-1.5 md:pt-2">
+                    <p><span class="font-semibold text-gray-400">단체명 :</span> 은빛금빛봉사단</p>
+                    <p><span class="font-semibold text-gray-400">후원계좌 :</span> 351-1388-8221-63 / 농협 (예금주: 은빛 금빛 봉사단)</p>
+                    <p><span class="font-semibold text-gray-400">이메일 :</span> <a href="mailto:ywk556@gmail.com" class="hover:text-white transition-colors">ywk556@gmail.com</a></p>
                 </div>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-6 mt-6 mb-2 text-sm text-gray-400">
-                <a href="?page=policy" hx-get="policy.html" hx-target="#main-content" hx-push-url="?page=policy" hx-swap="innerHTML show:window:top" class="hover:text-white transition-colors">이용약관</a>
-                <a href="?page=privacy" hx-get="privacy.html" hx-target="#main-content" hx-push-url="?page=privacy" hx-swap="innerHTML show:window:top" class="hover:text-white transition-colors">개인정보 처리방침</a>
-                <a href="?page=copyright" hx-get="copyright.html" hx-target="#main-content" hx-push-url="?page=copyright" hx-swap="innerHTML show:window:top" class="hover:text-white transition-colors">저작권 정책</a>
-            </div>
-
-            <hr class="border-gray-700 my-4">
-            <div class="text-center text-sm">
-                <p>&copy; 2026 은빛금빛 봉사단. All rights reserved.</p>
+            <div class="border-t border-[#4a4a4a] pt-6">
+                <p class="text-center text-[12px] text-gray-500 tracking-wide">
+                    &copy; 2026 은빛금빛 봉사단. All rights reserved.
+                </p>
             </div>
         </div>
     </footer>
