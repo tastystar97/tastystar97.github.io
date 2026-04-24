@@ -82,51 +82,57 @@
     <!-- 고정 헤더 영역 -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="javascript:void(0)" onclick="scrollToSection('home')" class="text-2xl font-bold text-blue-600">
-                <img src="asset/mainlogo2.png" alt="은빛금빛 봉사단 로고" class="h-9 w-auto">
+            <!-- 로고 클릭 시 home.html을 동적으로 로드 -->
+            <a href="?page=home" hx-get="home.html" hx-target="#main-content" hx-push-url="?page=home" hx-swap="innerHTML show:window:top" class="text-2xl font-bold text-blue-600">
+                <img src="asset/mainlogo2.png" alt="은빛금빛 봉사단" class="h-9 w-auto">
             </a>
             
             <div class="hidden md:flex space-x-6 items-center">
-                <a href="javascript:void(0)" onclick="scrollToSection('home')" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">홈</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('about')" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">봉사단 소개</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('activities')" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">활동 소식</a>
+                <!-- 네비게이션 링크들 (home.html 로드) -->
+                <a href="?page=home" hx-get="home.html" hx-target="#main-content" hx-push-url="?page=home" hx-swap="innerHTML show:window:top" class="text-gray-600 hover:text-blue-600 font-bold cursor-pointer transition-colors">홈</a>
+                <a href="?page=home" hx-get="home.html" hx-target="#main-content" hx-push-url="?page=home" hx-swap="innerHTML show:window:top" class="text-gray-600 hover:text-blue-600 cursor-pointer transition-colors">봉사단 소개</a>
+                <a href="?page=home" hx-get="home.html" hx-target="#main-content" hx-push-url="?page=home" hx-swap="innerHTML show:window:top" class="text-gray-600 hover:text-blue-600 cursor-pointer transition-colors">활동 소식</a>
                 
+                <!-- 🆕 추가된 게시판 드롭다운 메뉴 -->
                 <div class="relative group py-4 -my-4">
-                    <button class="text-gray-600 group-hover:text-blue-600 font-medium flex items-center transition-colors">
+                    <button class="text-gray-600 group-hover:text-blue-600 cursor-pointer flex items-center transition-colors">
                         게시판
-                        <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <!-- 호버 시 회전하는 화살표 아이콘 -->
+                        <svg class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div class="absolute left-0 mt-4 w-40 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
-                        <a href="?page=board_articles" hx-get="board_articles.html" hx-target="#main-content" hx-push-url="?page=board_articles" hx-swap="innerHTML show:window:top" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">관련기사</a>
-                        <a href="#" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">활동게시판</a>
+                    
+                    <!-- 드롭다운 리스트 -->
+                    <div class="absolute left-0 top-full mt-0 w-36 bg-white border border-gray-100 rounded-lg shadow-xl py-2 z-50 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
+                        <a href="?page=board_articles" hx-get="board_articles.html" hx-target="#main-content" hx-push-url="?page=board_articles" hx-swap="innerHTML show:window:top" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">관련기사</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">활동게시판</a>
                     </div>
                 </div>
-                
-                <a href="javascript:void(0)" onclick="scrollToSection('join')" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">참여 안내</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('contact')" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">문의하기</a>
+
+                <a href="#footer" class="text-gray-600 hover:text-blue-600 cursor-pointer transition-colors">문의하기</a>
             </div>
             
-            <button id="mobile-menu-button" class="md:hidden flex items-center p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <!-- 모바일 햄버거 버튼 -->
+            <button id="mobile-menu-button" class="md:hidden flex items-center p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </nav>
         
-        <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 bg-white border-t border-gray-100">
-            <a href="javascript:void(0)" onclick="scrollToSection('home')" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors">홈</a>
-            <a href="javascript:void(0)" onclick="scrollToSection('about')" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors">봉사단 소개</a>
-            <a href="javascript:void(0)" onclick="scrollToSection('activities')" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors">활동 소식</a>
+        <!-- 모바일 메뉴 -->
+        <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 bg-white border-t border-gray-100 shadow-inner">
+            <a href="?page=home" hx-get="home.html" hx-target="#main-content" hx-push-url="?page=home" hx-swap="innerHTML show:window:top" class="block px-6 py-3 text-gray-600 hover:bg-gray-50 hover:text-blue-600 font-bold">홈</a>
             
-            <div class="block px-6 py-2 text-gray-400 text-sm font-bold bg-gray-50 border-t border-b border-gray-100">게시판</div>
-            <a href="?page=board_articles" hx-get="board_articles.html" hx-target="#main-content" hx-push-url="?page=board_articles" hx-swap="innerHTML show:window:top" class="block px-10 py-3 text-sm text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors" onclick="closeMobileMenu()">관련기사</a>
-            <a href="#" class="block px-10 py-3 text-sm text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors" onclick="closeMobileMenu()">활동게시판</a>
-            
-            <a href="javascript:void(0)" onclick="scrollToSection('join')" class="block px-6 py-3 text-gray-600 border-t border-gray-100 hover:bg-gray-100 hover:text-blue-600 transition-colors">참여 안내</a>
-            <a href="javascript:void(0)" onclick="scrollToSection('contact')" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors">문의하기</a>
+            <!-- 🆕 모바일용 게시판 서브메뉴 추가 -->
+            <div class="border-y border-gray-50 bg-gray-50/50 py-1">
+                <div class="block px-6 py-2 text-gray-800 font-bold text-sm">게시판</div>
+                <a href="?page=board_articles" hx-get="board_articles.html" hx-target="#main-content" hx-push-url="?page=board_articles" hx-swap="innerHTML show:window:top" class="block px-10 py-2 text-gray-600 hover:bg-gray-100 hover:text-blue-600 text-sm transition-colors">관련기사</a>
+                <a href="#" class="block px-10 py-2 text-gray-600 hover:bg-gray-100 hover:text-blue-600 text-sm transition-colors">활동게시판</a>
+            </div>
+
+            <a href="#footer" class="block px-6 py-3 text-gray-600 hover:bg-gray-50 hover:text-blue-600">문의하기</a>
         </div>
     </header>
-
 
     <!-- 중앙 메인 콘텐츠 영역 (HTMX가 내용물을 동적으로 교체하는 타겟) -->
     <main id="main-content" class="flex-grow flex flex-col">
