@@ -54,21 +54,33 @@
                     return;
                 }
 
-                // JSON 데이터를 순회하며 HTML 행(tr) 생성
-                data.forEach(item => {
-                    const row = document.createElement('tr');
-                    row.className = "hover:bg-gray-50 transition-colors cursor-pointer";
-                    // 행 클릭 시 링크 이동
-                    row.onclick = () => window.location.href = item.link;
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = "hover:bg-gray-50 transition-colors cursor-pointer group";
+    
+                row.onclick = () => {
+             // 1. 외부 링크 (http로 시작) -> 새 탭에서 열기
+                if (item.link.startsWith('http')) {
+                window.open(item.link, '_blank', 'noopener,noreferrer');
+                } 
+            // 2. 내부 링크 (기존 SPA 방식 유지) -> HTMX로 부드럽게 전환
+                else if (item.link !== '#') {
+            // HTMX의 ajax 요청 기능을 자바스크립트에서 직접 호출
+                htmx.ajax('GET', item.link, {target:'#main-content', swap:'innerHTML'});
+            // 브라우저 주소창 업데이트 (뒤로가기 지원)
+                history.pushState({}, '', item.link);
+                }
+                };
 
-                    // 조회수(views)와 작성자(author) 데이터를 제거하고 3개의 열만 렌더링
-                    row.innerHTML = `
-                        <td class="px-6 py-4 text-sm text-gray-500">${item.id}</td>
-                        <td class="px-6 py-4 text-sm text-gray-800 text-left font-medium hover:text-blue-600 truncate max-w-xs md:max-w-xl">${item.title}</td>
-                        <td class="px-6 py-4 text-sm text-gray-500">${item.date}</td>
-                    `;
-                    boardList.appendChild(row);
-                });
+            row.innerHTML = `
+                <td class="px-6 py-4 text-sm text-gray-500">${item.id}</td>
+                <td class="px-6 py-4 text-sm text-gray-800 text-left font-medium truncate max-w-xs md:max-w-xl">
+                  <span class="group-hover:text-blue-600">${item.title}</span>
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-500">${item.date}</td>
+            `;
+            boardList.appendChild(row);
+        });
             })
             .catch(error => {
                 console.error('기사 로딩 실패:', error);
