@@ -62,7 +62,7 @@
 
         loadData.catch(() => fallbackData).then(data => {
             // 3. 전체 목록에서 현재 페이지의 위치(인덱스)를 찾습니다.
-            const currentIndex = data.findIndex(item => item.link === currentLink);
+            const currentIndex = data.findIndex(item => item.link.endsWith(currentLink));
             
             if (currentIndex === -1) {
                 container.innerHTML = '<div class="text-center w-full text-gray-500">네비게이션을 불러올 수 없습니다.</div>';
