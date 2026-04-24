@@ -296,10 +296,11 @@
                 }
                 popup.classList.add('hidden');
             };
+        }
                     // 4. 최신 활동 소식 동적 로드 로직
     const activityContainer = activeMain.querySelector('#latest-activities-container');
     if (activityContainer) {
-        fetch('asset/activity_board.json')
+        fetch('asset/board.json')
             .then(res => res.json())
             .then(data => {
                 // 최근 추가된 순서대로 3개만 추출
