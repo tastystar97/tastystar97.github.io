@@ -4,241 +4,217 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 검색 엔진 최적화 (SEO) 및 구글 노출 설정 -->
     <meta name="description" content="은빛금빛 봉사단은 지역사회 소외계층을 위한 나눔과 봉사를 실천하는 단체입니다. 독거노인 지원, 환경미화, 재능기부 등 다양한 활동에 참여하세요.">
     <meta name="keywords" content="은빛금빛봉사단, 봉사활동, 자원봉사, 지역사회봉사, 노인복지, 재능기부, 나눔실천">
     <meta name="author" content="은빛금빛 봉사단">
-    <meta name="robots" content="index, follow">
-    <meta name="naver-site-verification" content="80688cb614d095454e9593dadfa370b472c88f07" />
-    <meta name="google-site-verification" content="s7CNfhf6BTeh0I9m0qL0pN-3hG1a1A2IeUZQG1q0T_o" />
     
-    <link rel="canonical" href="https://agauvolunteer.kro.kr/">
-
-    <!-- 오픈 그래프 (Open Graph): SNS 공유 시 미리보기 설정 -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="은빛금빛 봉사단 - 함께 만드는 따뜻한 세상">
-    <meta property="og:description" content="이웃과 함께하며 더 나은 사회를 만들어가는 은빛금빛 봉사단입니다.">
-    <meta property="og:image" content="https://agauvolunteer.kro.kr/asset/mainlogo.png">
-    <meta property="og:url" content="https://agauvolunteer.kro.kr/">
-
-    <!-- 파비콘 설정: sublogo2.png 적용 -->
     <link rel="icon" href="asset/sublogo2.png" type="image/png">
-
-    <title>은빛금빛 봉사단 - 함께 만드는 따뜻한 세상</title>
     
-    <!-- HTMX CDN: SPA 구현의 핵심 엔진 -->
+    <title>은빛금빛 봉사단</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="asset/members.js"></script>
     
     <script>
+      // Tailwind CSS 커스텀 설정
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
               sans: ['Noto Sans KR', 'Inter', 'sans-serif'],
-            },
-            keyframes: {
-                fade: {
-                    '0%': { opacity: '0' },
-                    '20%': { opacity: '1' },
-                    '80%': { opacity: '1' },
-                    '100%': { opacity: '0' },
-                },
-                marquee: {
-                    '0%': { transform: 'translateX(0)' },
-                    '100%': { transform: 'translateX(-100%)' }
-                }
-            },
-            animation: {
-                fade: 'fade 6s infinite',
-                marquee: 'marquee 35s linear infinite',
             }
           },
         },
       }
     </script>
+    
     <style>
-      #mobile-menu { transition: max-height 0.3s ease-in-out; }
-      /* home.html에서 사용하는 스타일을 셸에 남겨둡니다 */
-      .slide-image {
-          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-          background-size: cover; background-position: center;
-          transition: opacity 0.5s ease-in-out; opacity: 0; z-index: 0;
+      /* 부드러운 스크롤 설정 */
+      html {
+          scroll-behavior: smooth;
       }
-      .slide-image.active { opacity: 1; }
-      .overlay-tint {
-          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-          background: rgba(0, 0, 0, 0.5); z-index: 1;
+      /* 모바일 메뉴 부드러운 전환 효과 */
+      #mobile-menu {
+        transition: max-height 0.3s ease-in-out;
       }
-      .marquee-wrapper:hover .animate-marquee { animation-play-state: paused; }
     </style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-800 flex flex-col min-h-screen">
 
-    <!-- 고정 헤더 영역 -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- 로고 클릭 시 home.html을 동적으로 로드 -->
-            <a href="?page=home" hx-get="home.html" hx-target="#main-content" hx-push-url="?page=home" hx-swap="innerHTML show:window:top" class="text-2xl font-bold text-blue-600">
-                <img src="asset/mainlogo2.png" alt="은빛금빛 봉사단" class="h-9 w-auto">
+            <a href="javascript:void(0)" onclick="scrollToSection('home')" class="text-2xl font-bold text-blue-600">
+                <img src="asset/mainlogo2.png" alt="은빛금빛 봉사단 로고" class="h-9 w-auto">
             </a>
             
             <div class="hidden md:flex space-x-6 items-center">
-                <!-- 네비게이션 링크들 (home.html 로드) -->
-                <a href="?page=home" hx-get="home.html" hx-target="#main-content" hx-push-url="?page=home" hx-swap="innerHTML show:window:top" class="text-gray-600 hover:text-blue-600 font-bold cursor-pointer transition-colors">홈</a>
-                <a href="?page=home" hx-get="home.html" hx-target="#main-content" hx-push-url="?page=home" hx-swap="innerHTML show:window:top" class="text-gray-600 hover:text-blue-600 cursor-pointer transition-colors">봉사단 소개</a>
-                <a href="?page=home" hx-get="home.html" hx-target="#main-content" hx-push-url="?page=home" hx-swap="innerHTML show:window:top" class="text-gray-600 hover:text-blue-600 cursor-pointer transition-colors">활동 소식</a>
+                <a href="javascript:void(0)" onclick="scrollToSection('home')" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">홈</a>
+                <a href="javascript:void(0)" onclick="scrollToSection('about')" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">봉사단 소개</a>
+                <a href="javascript:void(0)" onclick="scrollToSection('activities')" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">활동 소식</a>
                 
-                <!-- 🆕 추가된 게시판 드롭다운 메뉴 -->
                 <div class="relative group py-4 -my-4">
-                    <button class="text-gray-600 group-hover:text-blue-600 cursor-pointer flex items-center transition-colors">
+                    <button class="text-gray-600 group-hover:text-blue-600 font-medium flex items-center transition-colors">
                         게시판
-                        <!-- 호버 시 회전하는 화살표 아이콘 -->
-                        <svg class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    
-                    <!-- 드롭다운 리스트 -->
-                    <div class="absolute left-0 top-full mt-0 w-36 bg-white border border-gray-100 rounded-lg shadow-xl py-2 z-50 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
-                        <a href="?page=board_articles" hx-get="board_articles.html" hx-target="#main-content" hx-push-url="?page=board_articles" hx-swap="innerHTML show:window:top" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">관련기사</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">활동게시판</a>
+                    <div class="absolute left-0 mt-4 w-40 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
+                        <a href="?page=board_articles" hx-get="board_articles.html" hx-target="#main-content" hx-push-url="?page=board_articles" hx-swap="innerHTML show:window:top" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">관련기사</a>
+                        <a href="#" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium transition-colors">활동게시판</a>
                     </div>
                 </div>
-
-                <a href="#footer" class="text-gray-600 hover:text-blue-600 cursor-pointer transition-colors">문의하기</a>
+                
+                <a href="javascript:void(0)" onclick="scrollToSection('join')" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">참여 안내</a>
+                <a href="javascript:void(0)" onclick="scrollToSection('contact')" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">문의하기</a>
             </div>
             
-            <!-- 모바일 햄버거 버튼 -->
-            <button id="mobile-menu-button" class="md:hidden flex items-center p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button id="mobile-menu-button" class="md:hidden flex items-center p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </nav>
         
-        <!-- 모바일 메뉴 -->
-        <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 bg-white border-t border-gray-100 shadow-inner">
-            <a href="?page=home" hx-get="home.html" hx-target="#main-content" hx-push-url="?page=home" hx-swap="innerHTML show:window:top" class="block px-6 py-3 text-gray-600 hover:bg-gray-50 hover:text-blue-600 font-bold">홈</a>
+        <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 bg-white border-t border-gray-100">
+            <a href="javascript:void(0)" onclick="scrollToSection('home')" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors">홈</a>
+            <a href="javascript:void(0)" onclick="scrollToSection('about')" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors">봉사단 소개</a>
+            <a href="javascript:void(0)" onclick="scrollToSection('activities')" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors">활동 소식</a>
             
-            <!-- 🆕 모바일용 게시판 서브메뉴 추가 -->
-            <div class="border-y border-gray-50 bg-gray-50/50 py-1">
-                <div class="block px-6 py-2 text-gray-800 font-bold text-sm">게시판</div>
-                <a href="?page=board_articles" hx-get="board_articles.html" hx-target="#main-content" hx-push-url="?page=board_articles" hx-swap="innerHTML show:window:top" class="block px-10 py-2 text-gray-600 hover:bg-gray-100 hover:text-blue-600 text-sm transition-colors">관련기사</a>
-                <a href="#" class="block px-10 py-2 text-gray-600 hover:bg-gray-100 hover:text-blue-600 text-sm transition-colors">활동게시판</a>
-            </div>
-
-            <a href="#footer" class="block px-6 py-3 text-gray-600 hover:bg-gray-50 hover:text-blue-600">문의하기</a>
+            <div class="block px-6 py-2 text-gray-400 text-sm font-bold bg-gray-50 border-t border-b border-gray-100">게시판</div>
+            <a href="?page=board_articles" hx-get="board_articles.html" hx-target="#main-content" hx-push-url="?page=board_articles" hx-swap="innerHTML show:window:top" class="block px-10 py-3 text-sm text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors" onclick="closeMobileMenu()">관련기사</a>
+            <a href="#" class="block px-10 py-3 text-sm text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors" onclick="closeMobileMenu()">활동게시판</a>
+            
+            <a href="javascript:void(0)" onclick="scrollToSection('join')" class="block px-6 py-3 text-gray-600 border-t border-gray-100 hover:bg-gray-100 hover:text-blue-600 transition-colors">참여 안내</a>
+            <a href="javascript:void(0)" onclick="scrollToSection('contact')" class="block px-6 py-3 text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors">문의하기</a>
         </div>
     </header>
 
-    <!-- 중앙 메인 콘텐츠 영역 (HTMX가 내용물을 동적으로 교체하는 타겟) -->
-    <main id="main-content" class="flex-grow flex flex-col">
-        <!-- 초기 로딩 화면 (스크립트 처리 전 0.1초 노출) -->
-        <div class="flex-grow flex justify-center items-center">
-            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+    <main id="main-content" class="flex-grow relative">
+        <div class="flex flex-col justify-center items-center h-[60vh]">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-4 border-blue-600 mb-4"></div>
+            <p class="text-gray-500 font-medium">페이지를 불러오는 중입니다...</p>
         </div>
     </main>
-
-    <!-- 고정 푸터 영역 -->
-    <footer id="footer" class="bg-[#3a3a3a] text-gray-300 py-10 mt-auto">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <div class="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-center gap-8 md:gap-20 mb-10">
-                
-                <div class="flex flex-col items-center md:items-start">
-                    <a href="tel:031.594.7100" class="text-4xl md:text-[2.75rem] font-bold text-[#56b98e] tracking-tight mb-4 hover:text-[#76d4ac] transition-colors">
-                        031.594.7100
-                    </a>
-                    
-                    <div class="flex gap-4 text-[13px] font-medium text-gray-400">
-                        <a href="?page=policy" hx-get="policy.html" hx-target="#main-content" hx-push-url="?page=policy" hx-swap="innerHTML show:window:top" class="hover:text-white transition-colors">이용약관</a>
-                        <a href="?page=privacy" hx-get="privacy.html" hx-target="#main-content" hx-push-url="?page=privacy" hx-swap="innerHTML show:window:top" class="hover:text-white transition-colors">개인정보처리방침</a>
-                        <a href="?page=copyright" hx-get="copyright.html" hx-target="#main-content" hx-push-url="?page=copyright" hx-swap="innerHTML show:window:top" class="hover:text-white transition-colors">저작권안내</a>
+    
+    <footer id="contact" class="bg-gray-800 text-gray-400 py-10 mt-auto">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                <div class="mb-4 md:mb-0 text-center md:text-left">
+                    <h3 class="text-xl font-bold text-white mb-2">은빛금빛봉사단</h3>
+                    <div class="text-sm leading-relaxed">
+                        <div class="flex flex-col md:flex-row items-center md:items-end gap-2 mb-1">
+                            <span class="mb-1 md:mb-0">전화:</span>
+                            <a href="tel:031.594.7100" class="text-green-400 text-2xl font-bold hover:text-green-300 transition leading-none mx-1">
+                                031.594.7100
+                            </a>
+                        </div>
+                        <p>이메일: ywk556@gmail.com</p>
+                        <p>주소: 남양주시 수동면 비룡로 976 (우)12029</p>
+                        
+                        <div class="mt-4 pt-4 border-t border-gray-700">
+                            <p class="text-yellow-400 font-bold text-base mb-1">후원계좌 : 351-1388-8221-63 / 농협</p>
+                            <p class="text-gray-300">예금주: 은빛 금빛 봉사단</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="flex flex-col items-center md:items-start text-[14px] leading-relaxed text-gray-300 space-y-1.5 md:pt-2">
-                    <p><span class="font-semibold text-gray-400">단체명 :</span> 은빛금빛봉사단</p>
-                    <p><span class="font-semibold text-gray-400">후원계좌 :</span> 351-1388-8221-63 / 농협 (예금주: 은빛 금빛 봉사단)</p>
-                    <p><span class="font-semibold text-gray-400">이메일 :</span> <a href="mailto:ywk556@gmail.com" class="hover:text-white transition-colors">ywk556@gmail.com</a></p>
+                
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition" aria-label="Facebook">페이스북</a>
+                    <a href="#" class="hover:text-white transition" aria-label="Instagram">인스타그램</a>
+                    <a href="#" class="hover:text-white transition" aria-label="Blog">블로그</a>
                 </div>
             </div>
+            
+            <hr class="border-gray-700 my-6">
 
-            <div class="border-t border-[#4a4a4a] pt-6">
-                <p class="text-center text-[12px] text-gray-500 tracking-wide">
-                    &copy; 2026 은빛금빛 봉사단. All rights reserved.
-                </p>
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+                <div class="flex space-x-4 mb-4 md:mb-0">
+                    <a href="policy.html" class="hover:text-white transition">이용약관</a>
+                    <span class="text-gray-600">|</span>
+                    <a href="privacy.html" class="hover:text-white transition font-bold">개인정보처리방침</a>
+                    <span class="text-gray-600">|</span>
+                    <a href="copyright.html" class="hover:text-white transition">저작권안내</a>
+                </div>
+                <p>&copy; 2026 은빛금빛 봉사단. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ==========================================
-         최초 페이지 로딩 및 라우터 제어 스크립트
-         (내부 htmx-pages 템플릿 영역 제거 및 외부 파일 통합 라우팅으로 변경)
-         ========================================== -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const page = urlParams.get('page') || 'home';
-            const mainContent = document.getElementById('main-content');
-            
-            // 현재 환경이 캔버스 미리보기(Blob URL)인지 확인
-            const isPreviewEnv = window.location.protocol === 'blob:';
-            
-            // 1. 페이지 로딩 로직 (모든 페이지를 외부 파일에서 호출)
-            if (isPreviewEnv) {
-                // 미리보기 환경일 때 외부 파일 에러 방지용 안내 메시지 출력
-                mainContent.innerHTML = `
-                    <div class="flex flex-col items-center justify-center p-10 mt-10 text-center bg-white rounded-lg shadow-sm border border-gray-100 max-w-2xl mx-auto">
-                        <h2 class="text-2xl font-bold text-red-500 mb-3">미리보기 제한 안내</h2>
-                        <p class="text-gray-700 leading-relaxed">
-                            현재 <strong>AI 미리보기 환경(임시 주소)</strong>에서는 보안 및 브라우저 정책상<br> 
-                            분리된 <code class="text-blue-600 font-bold bg-blue-50 px-1 rounded">${page}.html</code> 파일을 동적으로 불러올 수 없습니다.
-                        </p>
-                        <div class="mt-6 text-sm text-gray-500 bg-gray-50 p-4 rounded-md">
-                            👉 작성된 코드는 완전히 정상입니다!<br>
-                            GitHub Pages 서버에 업로드하시거나 로컬 환경(Live Server 등)에서 확인하시면 완벽하게 작동합니다.
-                        </div>
-                    </div>`;
-            } else {
-                // 실제 서버 환경: URL 파라미터와 일치하는 html 파일 로드
-                htmx.ajax('GET', page + '.html', {
-                    target: '#main-content',
-                    swap: 'innerHTML show:window:top'
-                });
-            }
-            
-            // 2. 모바일 메뉴 토글 로직
-            const menuBtn = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            menuBtn.onclick = () => {
-                if (mobileMenu.classList.contains('max-h-0')) {
-                    mobileMenu.classList.remove('max-h-0');
-                    mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
-                } else {
-                    mobileMenu.style.maxHeight = '0';
-                    setTimeout(() => mobileMenu.classList.add('max-h-0'), 300);
-                }
-            };
-            
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.style.maxHeight = '0';
-                    setTimeout(() => mobileMenu.classList.add('max-h-0'), 300);
-                });
-            });
+    <script src="asset/members.js"></script>
 
-            // 3. 미리보기 환경에서 네비게이션 클릭 에러 방어 이벤트
-            document.body.addEventListener('click', (e) => {
-                const link = e.target.closest('a[hx-get]');
-                if (link && isPreviewEnv) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    alert("미리보기 창에서는 외부 파일 로드가 차단되어 있습니다. GitHub 배포 후 확인해주세요.");
-                }
-            }, true);
+    <script>
+        // 1. 모바일 햄버거 메뉴 토글
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('max-h-0')) {
+                mobileMenu.classList.remove('max-h-0');
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+            } else {
+                closeMobileMenu();
+            }
+        });
+
+        // 모바일 메뉴 닫기 유틸리티 함수
+        function closeMobileMenu() {
+            if(mobileMenu) {
+                mobileMenu.style.maxHeight = '0';
+                setTimeout(() => mobileMenu.classList.add('max-h-0'), 300);
+            }
+        }
+
+        // 2. 다른 페이지에서도 작동하는 똑똑한 스크롤 함수
+        function scrollToSection(sectionId) {
+            const target = document.getElementById(sectionId);
+
+            // 현재 화면에 해당 구역(id)이 있는 경우 (메인 홈 화면일 때)
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            } 
+            // 현재 화면에 구역이 없는 경우 (관련기사 등 다른 페이지에 있을 때)
+            else {
+                // HTMX로 메인 홈(home.html)을 먼저 불러온 뒤
+                htmx.ajax('GET', 'home.html', { target: '#main-content', pushUrl: '?page=home' })
+                    .then(() => {
+                        // 페이지 로딩 후 부드럽게 해당 위치로 스크롤 이동
+                        setTimeout(() => {
+                            const newTarget = document.getElementById(sectionId);
+                            if (newTarget) newTarget.scrollIntoView({ behavior: 'smooth' });
+                        }, 150);
+                    });
+            }
+            closeMobileMenu(); // 이동 후 모바일 메뉴 닫기
+        }
+
+        // 3. 새로고침 시에도 URL을 확인하여 알맞은 페이지 로딩 (SPA 라우터)
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let page = urlParams.get('page') || 'home'; // 기본값은 home
+            
+            // 기존 잘못된 주소 캐싱 방어용
+            if (page === 'articles') page = 'board_articles';
+
+            // 페이지 로딩 (HTMX)
+            htmx.ajax('GET', `${page}.html`, { 
+                target: '#main-content',
+                swap: 'innerHTML show:window:top'
+            }).catch(() => {
+                // 로컬 환경 실행 오류 안내
+                document.getElementById('main-content').innerHTML = `
+                    <div class="flex flex-col justify-center items-center h-[60vh] text-center px-6">
+                        <span class="text-4xl mb-4">🚨</span>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">페이지 로딩 실패</h2>
+                        <p class="text-gray-500">
+                            웹 서버가 아닌 로컬 폴더에서 직접 실행하셨나요?<br>
+                            이 웹사이트는 <b>로컬 웹 서버 환경(Live Server 등)</b>에서 실행해야 합니다.
+                        </p>
+                    </div>
+                `;
+            });
         });
     </script>
 </body>
