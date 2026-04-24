@@ -3,18 +3,27 @@
     "id": 3,
     "title": "깨끗한 우리 동네 만들기",
     "date": "2025-10-20",
-    "link": "activity3.html"
+    "link": "activity3.html",
+    "image": "asset/3-1.jpg",
+    "desc": "가을맞이 대청소! 산책로 쓰레기를 수거하고 꽃밭을 조성했습니다.",
+    "tag": "환경"
   },
   {
     "id": 2,
     "title": "행복한 빵 나눔터 후기",
     "date": "2025-11-01",
-    "link": "activity2.html"
+    "link": "activity2.html",
+    "image": "asset/2-1.jpg",
+    "desc": "지역 아동센터 아이들과 달콤한 빵을 나누는 시간을 가졌습니다.",
+    "tag": "봉사"
   },
   {
     "id": 1,
     "title": "따뜻한 겨울나기 연탄 나눔 후기",
     "date": "2025-11-15",
-    "link": "activity1.html"
+    "link": "activity1.html",
+    "image": "asset/1-1.jpg",
+    "desc": "지역 어르신들의 따뜻한 겨울을 위해 연탄을 전달했습니다.",
+    "tag": "나눔"
   }
 ]
