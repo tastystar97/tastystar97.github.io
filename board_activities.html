@@ -1,0 +1,141 @@
+<div class="container mx-auto px-6 py-12 max-w-5xl">
+    <div class="mb-8">
+        <h2 class="text-3xl font-extrabold text-gray-800">활동게시판</h2>
+        <p class="text-gray-500 mt-2">은빛금빛 봉사단의 생생한 나눔 및 활동 소식을 전해드립니다.</p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <table class="min-w-full text-center">
+            <thead class="bg-blue-50 border-b border-blue-100">
+                <tr>
+                    <th scope="col" class="px-6 py-4 text-sm font-bold text-gray-700">번호</th>
+                    <th scope="col" class="px-6 py-4 text-sm font-bold text-gray-700 text-left w-2/3">제목</th>
+                    <th scope="col" class="px-6 py-4 text-sm font-bold text-gray-700">작성일</th>
+                </tr>
+            </thead>
+            <tbody id="activity-board-list" class="divide-y divide-gray-100">
+                <tr>
+                    <td colspan="3" class="px-6 py-8 text-gray-400">
+                        게시글 데이터를 불러오는 중입니다...
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="flex justify-center mt-8">
+        <nav id="pagination-nav-activity" class="flex items-center space-x-2">
+        </nav>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const boardList = document.getElementById('activity-board-list');
+        const paginationNav = document.getElementById('pagination-nav-activity');
+
+        let allData = []; 
+        let currentPage = 1; 
+        const itemsPerPage = 10; 
+
+        function renderTable(page) {
+            boardList.innerHTML = '';
+
+            if (allData.length === 0) {
+                boardList.innerHTML = `<tr><td colspan="3" class="px-6 py-8 text-gray-500">등록된 활동 소식이 없습니다.</td></tr>`;
+                return;
+            }
+
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedData = allData.slice(startIndex, endIndex);
+
+            paginatedData.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = "hover:bg-gray-50 transition-colors cursor-pointer group";
+    
+                row.onclick = () => {
+                    if (item.link.startsWith('http')) {
+                        window.open(item.link, '_blank', 'noopener,noreferrer');
+                    } else if (item.link !== '#') {
+                        htmx.ajax('GET', item.link, {target:'#main-content', swap:'innerHTML'});
+                        history.pushState({}, '', '?page=' + item.link.replace('.html', ''));
+                    }
+                };
+
+                row.innerHTML = `
+                    <td class="px-6 py-4 text-sm text-gray-500">${item.id}</td>
+                    <td class="px-6 py-4 text-sm text-gray-800 text-left font-medium truncate max-w-xs md:max-w-xl">
+                      <span class="group-hover:text-blue-600">${item.title}</span>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-500">${item.date}</td>
+                `;
+                boardList.appendChild(row);
+            });
+        }
+
+        function renderPagination() {
+            paginationNav.innerHTML = '';
+            const totalPages = Math.ceil(allData.length / itemsPerPage);
+            if (totalPages === 0) return;
+
+            const prevBtn = document.createElement('button');
+            prevBtn.innerHTML = '&laquo;';
+            prevBtn.className = `px-3 py-1 rounded-md text-gray-500 hover:bg-gray-100 transition-colors ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`;
+            prevBtn.onclick = () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderTable(currentPage);
+                    renderPagination();
+                }
+            };
+            paginationNav.appendChild(prevBtn);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.innerText = i;
+                
+                if (i === currentPage) {
+                    pageBtn.className = "px-3 py-1 rounded-md bg-blue-600 text-white font-medium shadow-sm transition-colors";
+                } else {
+                    pageBtn.className = "px-3 py-1 rounded-md text-gray-500 hover:bg-gray-100 hover:text-blue-600 transition-colors";
+                }
+
+                pageBtn.onclick = () => {
+                    currentPage = i;
+                    renderTable(currentPage);
+                    renderPagination();
+                };
+                paginationNav.appendChild(pageBtn);
+            }
+
+            const nextBtn = document.createElement('button');
+            nextBtn.innerHTML = '&raquo;';
+            nextBtn.className = `px-3 py-1 rounded-md text-gray-500 hover:bg-gray-100 transition-colors ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`;
+            nextBtn.onclick = () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderTable(currentPage);
+                    renderPagination();
+                }
+            };
+            paginationNav.appendChild(nextBtn);
+        }
+
+        // 새롭게 만든 JSON 파일에서 데이터를 가져옵니다.
+        fetch('asset/activity_board.json')
+            .then(response => {
+                if (!response.ok) throw new Error('네트워크 응답이 올바르지 않습니다.');
+                return response.json();
+            })
+            .then(data => {
+                allData = data; 
+                renderTable(currentPage); 
+                renderPagination();       
+            })
+            .catch(error => {
+                console.error('로딩 실패:', error);
+                boardList.innerHTML = `<tr><td colspan="3" class="px-6 py-8 text-red-500 text-sm">게시글을 불러오는데 실패했습니다. 로컬 웹 서버 환경인지 확인해주세요.</td></tr>`;
+            });
+    })();
+</script>
