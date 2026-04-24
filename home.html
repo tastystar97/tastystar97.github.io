@@ -44,23 +44,23 @@
                 </div>
 
                 <!-- 팝업 컨트롤 -->
-                <button id="popup-prev" class="absolute left-3 top-[35%] transform -translate-y-1/2 bg-white rounded-full p-2.5 shadow-md">
+                <button id="popup-prev" class="absolute left-3 top-[35%] transform -translate-y-1/2 bg-white rounded-full p-2.5 shadow-md hover:bg-gray-100 transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button id="popup-next" class="absolute right-3 top-[35%] transform -translate-y-1/2 bg-white rounded-full p-2.5 shadow-md">
+                <button id="popup-next" class="absolute right-3 top-[35%] transform -translate-y-1/2 bg-white rounded-full p-2.5 shadow-md hover:bg-gray-100 transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </button>
                 <div class="absolute bottom-0 left-0 w-full flex justify-center gap-2 z-10 bg-white bg-opacity-80 pt-4 pb-4">
-                    <button class="popup-dot w-5 h-2 rounded-full bg-blue-600"></button>
-                    <button class="popup-dot w-2 h-2 rounded-full bg-gray-300"></button>
-                    <button class="popup-dot w-2 h-2 rounded-full bg-gray-300"></button>
+                    <button class="popup-dot w-5 h-2 rounded-full bg-blue-600 transition-all cursor-pointer"></button>
+                    <button class="popup-dot w-2 h-2 rounded-full bg-gray-300 transition-all cursor-pointer"></button>
+                    <button class="popup-dot w-2 h-2 rounded-full bg-gray-300 transition-all cursor-pointer"></button>
                 </div>
             </div>
             <div class="bg-gray-50 border-t px-6 py-3 flex justify-between items-center text-sm">
                 <label class="flex items-center cursor-pointer">
                     <input type="checkbox" id="dont-show-today" class="mr-2 rounded text-blue-600"> 오늘 하루 안보기
                 </label>
-                <button id="close-popup-btn" class="font-bold underline">닫기</button>
+                <button id="close-popup-btn" class="font-bold text-gray-600 hover:text-gray-900 underline transition-colors">닫기</button>
             </div>
         </div>
     </div>
@@ -75,7 +75,7 @@
         <div class="container mx-auto px-6 text-center relative z-20 flex flex-col items-center -mt-48">
             <img src="asset/mainlogo.png" alt="메인 로고" onerror="this.src='https://via.placeholder.com/300x100?text=Logo'" class="max-w-full h-auto w-80 mb-6">
             <p class="text-xl font-light mb-8 text-gray-100">Silver-Gold Volunteer Corps</p>
-            <a href="https://forms.gle/YEhHgNQtrdf1qpnBA" target="_blank" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg">지금 참여하기</a>
+            <a href="https://forms.gle/YEhHgNQtrdf1qpnBA" target="_blank" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition-colors">지금 참여하기</a>
         </div>
         <div id="slider-dots" class="absolute bottom-10 left-0 w-full flex justify-center gap-4 z-30"></div>
     </section>
@@ -86,123 +86,119 @@
         <div id="marquee-content-2" class="animate-marquee flex items-center min-w-full justify-around shrink-0 px-4" aria-hidden="true"></div>
     </div>
 
-                    <!-- 봉사단 소개 섹션 -->
-        <section id="about" class="py-20 bg-white relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 translate-x-1/2 translate-y-1/2"></div>
-            
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/2 flex justify-center">
-                        <div class="relative w-[70%]">
-                            <img src="asset/sublogo4.png" alt="봉사단 소개 이미지" class="rounded-lg shadow-lg w-full relative z-10 bg-white">
-                            <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-yellow-400 rounded-lg -z-0 hidden md:block"></div>
-                        </div>
-                    </div>
-
-                    <div class="md:w-1/2">
-                        <h2 class="text-3xl font-bold text-center mb-10 text-gray-900">봉사단 소개</h2>
-
-                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">
-                            <span class="bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900">상징적 의미</span>
-                        </h3>
-                        <p class="text-gray-700 leading-relaxed mb-6">
-                            은빛이 점차 금빛으로 변하는 과정은 단순한 색의 변화가 아니라, 
-                            <span class="bg-yellow-100 px-1 rounded font-semibold text-gray-900">늙음에서 젊음·희망으로</span>, 어둠에서 밝음으로 나아가는 성장을 의미합니다.
-                            <br><br>
-                            내면의 긍정 에너지와 예술적 전환을 통해 우리 사회에 따뜻한 변화를 만들어가는 은빛금빛 봉사단의 다짐입니다.
-                        </p>
-                        <p class="text-sm text-blue-500 mt-2 text-left">* 은빛금빛 봉사단은 분기에 1회 이상 봉사에 참여하는 것을 원칙으로 합니다.</p>
-                        <br>
-                        
-                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">주요 활동</h3>
-                        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <ul class="space-y-3">
-                                    <li class="flex items-center text-gray-700 text-lg font-medium">
-                                        <span class="w-2.5 h-2.5 bg-gray-500 rounded-full mr-3"></span>차량봉사 (병원, 나들이)
-                                    </li>
-                                    <li class="flex items-center text-gray-700 text-lg font-medium">
-                                        <span class="w-2.5 h-2.5 bg-gray-500 rounded-full mr-3"></span>노력봉사 (청소, 심부름)
-                                    </li>
-                                    <li class="flex items-center text-gray-700 text-lg font-medium">
-                                        <span class="w-2.5 h-2.5 bg-gray-500 rounded-full mr-3"></span>지역봉사 (도로, 개천 청소)
-                                    </li>
-                                     <li class="flex items-center text-gray-700 text-lg font-medium">
-                                        <span class="w-2.5 h-2.5 bg-gray-500 rounded-full mr-3"></span>재능봉사 (공연, 악기, 미용)
-                                    </li>
-                                </ul>
-                                <ul class="space-y-3">
-                                    <li class="flex items-center text-gray-700 text-lg font-medium">
-                                        <span class="w-2.5 h-2.5 bg-yellow-500 rounded-full mr-3"></span>집수리봉사 (도배, 정리정돈)
-                                    </li>
-                                    <li class="flex items-center text-gray-700 text-lg font-medium">
-                                        <span class="w-2.5 h-2.5 bg-yellow-500 rounded-full mr-3"></span>행사봉사 (초청잔치, 운동회)
-                                    </li>
-                                    <li class="flex items-center text-gray-700 text-lg font-medium">
-                                        <span class="w-2.5 h-2.5 bg-yellow-500 rounded-full mr-3"></span>말벗봉사 (독거노인, 취약계층 케어)
-                                    </li>
-                                     <li class="flex items-center text-gray-700 text-lg font-medium">
-                                        <span class="w-2.5 h-2.5 bg-yellow-500 rounded-full mr-3"></span>물질봉사 (후원물품, 후원금)
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-2 text-right">* 중복 선택 가능합니다.</p>
+    <!-- 봉사단 소개 섹션 -->
+    <section id="about" class="py-20 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 translate-x-1/2 translate-y-1/2"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-[70%]">
+                        <img src="asset/sublogo4.png" alt="봉사단 소개 이미지" class="rounded-lg shadow-lg w-full relative z-10 bg-white">
+                        <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-yellow-400 rounded-lg -z-0 hidden md:block"></div>
                     </div>
                 </div>
+
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-center mb-10 text-gray-900">봉사단 소개</h2>
+
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900">상징적 의미</span>
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        은빛이 점차 금빛으로 변하는 과정은 단순한 색의 변화가 아니라, 
+                        <span class="bg-yellow-100 px-1 rounded font-semibold text-gray-900">늙음에서 젊음·희망으로</span>, 어둠에서 밝음으로 나아가는 성장을 의미합니다.
+                        <br><br>
+                        내면의 긍정 에너지와 예술적 전환을 통해 우리 사회에 따뜻한 변화를 만들어가는 은빛금빛 봉사단의 다짐입니다.
+                    </p>
+                    <p class="text-sm text-blue-500 mt-2 text-left">* 은빛금빛 봉사단은 분기에 1회 이상 봉사에 참여하는 것을 원칙으로 합니다.</p>
+                    <br>
+                    
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">주요 활동</h3>
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <ul class="space-y-3">
+                                <li class="flex items-center text-gray-700 text-lg font-medium">
+                                    <span class="w-2.5 h-2.5 bg-gray-500 rounded-full mr-3"></span>차량봉사 (병원, 나들이)
+                                </li>
+                                <li class="flex items-center text-gray-700 text-lg font-medium">
+                                    <span class="w-2.5 h-2.5 bg-gray-500 rounded-full mr-3"></span>노력봉사 (청소, 심부름)
+                                </li>
+                                <li class="flex items-center text-gray-700 text-lg font-medium">
+                                    <span class="w-2.5 h-2.5 bg-gray-500 rounded-full mr-3"></span>지역봉사 (도로, 개천 청소)
+                                </li>
+                                 <li class="flex items-center text-gray-700 text-lg font-medium">
+                                    <span class="w-2.5 h-2.5 bg-gray-500 rounded-full mr-3"></span>재능봉사 (공연, 악기, 미용)
+                                </li>
+                            </ul>
+                            <ul class="space-y-3">
+                                <li class="flex items-center text-gray-700 text-lg font-medium">
+                                    <span class="w-2.5 h-2.5 bg-yellow-500 rounded-full mr-3"></span>집수리봉사 (도배, 정리정돈)
+                                </li>
+                                <li class="flex items-center text-gray-700 text-lg font-medium">
+                                    <span class="w-2.5 h-2.5 bg-yellow-500 rounded-full mr-3"></span>행사봉사 (초청잔치, 운동회)
+                                </li>
+                                <li class="flex items-center text-gray-700 text-lg font-medium">
+                                    <span class="w-2.5 h-2.5 bg-yellow-500 rounded-full mr-3"></span>말벗봉사 (독거노인, 취약계층 케어)
+                                </li>
+                                 <li class="flex items-center text-gray-700 text-lg font-medium">
+                                    <span class="w-2.5 h-2.5 bg-yellow-500 rounded-full mr-3"></span>물질봉사 (후원물품, 후원금)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2 text-right">* 중복 선택 가능합니다.</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- 최신 활동 소식 -->
-<section id="activities" class="py-20 bg-gray-50 relative">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-12">
-            <span class="text-blue-600 font-bold tracking-wider uppercase text-sm">Activities</span>
-            <h2 class="text-3xl font-bold mt-2">최신 활동 소식</h2>
-            <div class="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded"></div>
-        </div>
-
-        <div id="latest-activities-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="col-span-full text-center py-10 text-gray-400">활동 소식을 불러오는 중입니다...</div>
-        </div>
-    </div>
-</section>
-
-                 <!-- 참여 안내 섹션 -->
-        <section id="join" class="py-14 text-center text-white relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-indigo-800 z-0"></div>
-            
-            <div class="absolute top-0 left-0 w-64 h-64 bg-white opacity-10 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 right-0 w-80 h-80 bg-yellow-400 opacity-20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
-
-            <div class="container mx-auto px-6 relative z-10">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">함께해요!</h2>
-                <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-                    당신의 따뜻한 마음과 소중한 시간이 큰 힘이 됩니다.<br>
-                    <span class="font-bold text-white">은빛금빛 봉사단</span>의 회원이 되어 의미 있는 변화를 함께 만들어가요.
-                </p>
-                
-                <a href="https://forms.gle/YEhHgNQtrdf1qpnBA" target="_blank" class="inline-block bg-white text-blue-700 font-bold py-3 px-10 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition-all duration-300 shadow-lg transform hover:scale-105">
-                    가입 신청하기
-                </a>
-                
-                <p class="mt-4 text-sm text-blue-200 opacity-80">
-                    * 링크를 클릭하면 가입 신청서(Google Form)로 이동합니다.
-                </p>
+    <section id="activities" class="py-20 bg-gray-50 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm">Activities</span>
+                <h2 class="text-3xl font-bold mt-2">최신 활동 소식</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded"></div>
             </div>
-        </section>
 
+            <div id="latest-activities-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="col-span-full text-center py-10 text-gray-400">활동 소식을 불러오는 중입니다...</div>
+            </div>
+        </div>
+    </section>
 
+    <!-- 참여 안내 섹션 -->
+    <section id="join" class="py-14 text-center text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-indigo-800 z-0"></div>
+        
+        <div class="absolute top-0 left-0 w-64 h-64 bg-white opacity-10 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 bg-yellow-400 opacity-20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">함께해요!</h2>
+            <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+                당신의 따뜻한 마음과 소중한 시간이 큰 힘이 됩니다.<br>
+                <span class="font-bold text-white">은빛금빛 봉사단</span>의 회원이 되어 의미 있는 변화를 함께 만들어가요.
+            </p>
+            
+            <a href="https://forms.gle/YEhHgNQtrdf1qpnBA" target="_blank" class="inline-block bg-white text-blue-700 font-bold py-3 px-10 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition-all duration-300 shadow-lg transform hover:scale-105">
+                가입 신청하기
+            </a>
+            
+            <p class="mt-4 text-sm text-blue-200 opacity-80">
+                * 링크를 클릭하면 가입 신청서(Google Form)로 이동합니다.
+            </p>
+        </div>
+    </section>
 
     <!-- 홈 화면 전용 스크립트 (HTMX로 로드될 때마다 실행됨) -->
-<script>
+    <script>
     (function(){
-        // HTMX로 로드되는 영역(#main-content)을 기준으로 요소를 찾습니다.
-        // SPA 환경에서는 document 대신 렌더링된 컨테이너 내부를 탐색하는 것이 안전합니다.
         const activeMain = document.getElementById('main-content') || document;
 
-        // 1. Marquee 띠지 렌더링 로직 (오류 수정됨)
+        // 1. Marquee 띠지 렌더링 로직
         const members = typeof volunteerMembers !== 'undefined' ? volunteerMembers : [];
         const mq1 = activeMain.querySelector('#marquee-content-1');
         const mq2 = activeMain.querySelector('#marquee-content-2');
@@ -211,54 +207,60 @@
             let html = '<span class="mx-5 font-bold text-yellow-300 text-lg">✨ 함께하는 봉사단원</span>';
             members.forEach((m, i) => {
                 html += `<span class="mx-5 font-medium">${m}</span>`;
-                // 마지막 멤버가 아니면 구분점 추가
                 if(i < members.length - 1) html += `<span class="text-blue-400 text-xs">●</span>`;
             });
             mq1.innerHTML = html; 
             mq2.innerHTML = html;
 
-            // 명단 수에 따라 애니메이션 속도를 동적으로 조절
             const animationTime = members.length * 1.0; 
             mq1.style.animationDuration = `${animationTime}s`;
             mq2.style.animationDuration = `${animationTime}s`;
         }
 
-        // 2. 히어로 배너 슬라이더 복구
+        // 2. 히어로 배너 슬라이더 버그 수정 (타이머 중복 방지)
         const slides = activeMain.querySelectorAll('.slide-image');
         const dotsContainer = activeMain.querySelector('#slider-dots');
         
         if(slides.length > 0 && dotsContainer) {
             let cSlide = 0;
-            dotsContainer.innerHTML = ''; // 초기화
+            let sliderInterval; // 타이머를 담을 변수 외부 선언
             
+            dotsContainer.innerHTML = ''; 
+            
+            // 타이머 실행 함수
+            const startSlider = () => {
+                sliderInterval = setInterval(() => {
+                    if(!document.contains(dotsContainer)) {
+                        clearInterval(sliderInterval);
+                        return; 
+                    }
+                    slides[cSlide].classList.remove('active');
+                    dotsContainer.children[cSlide].className = 'w-3 h-3 rounded-full bg-white opacity-50 transition-all cursor-pointer';
+                    cSlide = (cSlide + 1) % slides.length;
+                    slides[cSlide].classList.add('active');
+                    dotsContainer.children[cSlide].className = 'w-8 h-3 rounded-full bg-white opacity-100 transition-all cursor-pointer';
+                }, 4000);
+            };
+
             slides.forEach((_, i) => {
                 let d = document.createElement('button');
                 d.className = i === 0 
-                    ? 'w-8 h-3 rounded-full bg-white opacity-100 transition-all' 
-                    : 'w-3 h-3 rounded-full bg-white opacity-50 transition-all';
+                    ? 'w-8 h-3 rounded-full bg-white opacity-100 transition-all cursor-pointer' 
+                    : 'w-3 h-3 rounded-full bg-white opacity-50 transition-all cursor-pointer';
                 
                 d.onclick = () => {
+                    clearInterval(sliderInterval); // [버그수정] 수동으로 넘길 때 기존 자동 타이머 정지
                     slides[cSlide].classList.remove('active');
-                    dotsContainer.children[cSlide].className = 'w-3 h-3 rounded-full bg-white opacity-50 transition-all';
+                    dotsContainer.children[cSlide].className = 'w-3 h-3 rounded-full bg-white opacity-50 transition-all cursor-pointer';
                     cSlide = i;
                     slides[cSlide].classList.add('active');
-                    dotsContainer.children[cSlide].className = 'w-8 h-3 rounded-full bg-white opacity-100 transition-all';
+                    dotsContainer.children[cSlide].className = 'w-8 h-3 rounded-full bg-white opacity-100 transition-all cursor-pointer';
+                    startSlider(); // [버그수정] 수동 조작 후 타이머 재시작 (충돌 방지)
                 };
                 dotsContainer.appendChild(d);
             });
             
-            // 페이지 변경 시 타이머를 완전히 정리(clearInterval)하여 겹침 현상 방지
-            const sliderInterval = setInterval(() => {
-                if(!document.contains(dotsContainer)) {
-                    clearInterval(sliderInterval);
-                    return; 
-                }
-                slides[cSlide].classList.remove('active');
-                dotsContainer.children[cSlide].className = 'w-3 h-3 rounded-full bg-white opacity-50 transition-all';
-                cSlide = (cSlide + 1) % slides.length;
-                slides[cSlide].classList.add('active');
-                dotsContainer.children[cSlide].className = 'w-8 h-3 rounded-full bg-white opacity-100 transition-all';
-            }, 4000);
+            startSlider(); // 초기 페이지 진입 시 타이머 시작
         }
 
         // 3. 팝업 슬라이더 로직
@@ -277,10 +279,18 @@
                 track.style.transform = `translateX(-${pIndex * 100}%)`;
                 pDots.forEach((dot, i) => {
                     dot.className = i === pIndex 
-                        ? 'popup-dot w-5 h-2 rounded-full bg-blue-600 transition-all' 
-                        : 'popup-dot w-2 h-2 rounded-full bg-gray-300 transition-all';
+                        ? 'popup-dot w-5 h-2 rounded-full bg-blue-600 transition-all cursor-pointer' 
+                        : 'popup-dot w-2 h-2 rounded-full bg-gray-300 transition-all cursor-pointer';
                 });
             };
+
+            // [버그수정] 팝업창 하단의 인디케이터 점(Dot)을 클릭했을 때 작동하도록 클릭 이벤트 추가
+            pDots.forEach((dot, i) => {
+                dot.onclick = () => {
+                    pIndex = i;
+                    updatePopup();
+                };
+            });
 
             const prevBtn = activeMain.querySelector('#popup-prev');
             const nextBtn = activeMain.querySelector('#popup-next');
@@ -297,13 +307,32 @@
                 popup.classList.add('hidden');
             };
         }
-                    // 4. 최신 활동 소식 동적 로드 로직
-    const activityContainer = activeMain.querySelector('#latest-activities-container');
-    if (activityContainer) {
-        fetch('asset/board.json')
-            .then(res => res.json())
-            .then(data => {
-                // 최근 추가된 순서대로 3개만 추출
+
+        // 4. 최신 활동 소식 동적 로드 로직
+        const activityContainer = activeMain.querySelector('#latest-activities-container');
+        if (activityContainer) {
+            const fallbackData = [
+                { "id": 3, "title": "깨끗한 우리 동네 만들기", "date": "2025-10-20", "link": "activity3.html", "image": "asset/3-1.jpg", "desc": "가을맞이 대청소! 산책로 쓰레기를 수거하고 꽃밭을 조성했습니다.", "tag": "환경" },
+                { "id": 2, "title": "행복한 빵 나눔터 후기", "date": "2025-11-01", "link": "activity2.html", "image": "asset/2-1.jpg", "desc": "지역 아동센터 아이들과 달콤한 빵을 나누는 시간을 가졌습니다.", "tag": "봉사" },
+                { "id": 1, "title": "따뜻한 겨울나기 연탄 나눔 후기", "date": "2025-11-15", "link": "activity1.html", "image": "asset/1-1.jpg", "desc": "지역 어르신들의 따뜻한 겨울을 위해 연탄을 전달했습니다.", "tag": "나눔" }
+            ];
+
+            let loadData;
+            try {
+                loadData = fetch('asset/board.json').then(res => {
+                    if (!res.ok) throw new Error("Network Error");
+                    return res.json();
+                });
+            } catch (e) {
+                // blob 환경 등에서 URL 파싱 에러 발생 시 동기적 예외 처리 (미리보기 환경 대응)
+                loadData = Promise.resolve(fallbackData);
+            }
+
+            loadData.catch(err => {
+                // 네트워크 에러 등의 비동기적 예외 처리
+                console.warn("활동 로드 실패 (미리보기 환경 등), 기본 데이터를 사용합니다:", err);
+                return fallbackData;
+            }).then(data => {
                 const latestItems = data.slice(0, 3);
                 
                 let html = '';
@@ -330,14 +359,11 @@
                 });
                 activityContainer.innerHTML = html;
                 
-                // HTMX가 새로 생성된 요소(a 태그)를 인식하도록 처리
-                htmx.process(activityContainer);
-            })
-            .catch(err => {
-                console.error("활동 로드 실패:", err);
-                activityContainer.innerHTML = '<p class="col-span-full text-center text-red-500">데이터를 불러오지 못했습니다.</p>';
+                if (typeof htmx !== 'undefined') {
+                    htmx.process(activityContainer);
+                }
             });
-    }
+        }
     })();
     </script>
 </div>
