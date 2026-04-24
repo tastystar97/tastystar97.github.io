@@ -1,0 +1,127 @@
+<div id="page-activity1" class="container mx-auto px-6 py-12 max-w-4xl flex-grow">
+    
+    <!-- 게시글 헤더 -->
+    <div class="mb-8 border-b pb-6">
+        <div class="flex items-center text-blue-600 text-sm font-bold mb-3">
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">환경</span>
+            <span class="mx-3 text-gray-300">|</span>
+            <span class="text-gray-500 font-normal">2026-04-18</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">[환경정리]수동면 송천리 환경 정화 및 청소 봉사</h1>
+    </div>
+
+    <!-- 게시글 본문 -->
+    <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed mb-16">
+        <img src="asset/4_18/nb.png" onerror="this.src='https://via.placeholder.com/800x400?text=Activity+Image'" alt="환경 정화 및 청소 봉사 활동" class="w-full rounded-xl shadow-md mb-8">
+        <p class="mb-6">
+            지난 4월 18일, 우리 은빛금빛 봉사단원들은 남양주시 수동면 송천리 일대에서 지역 환경 정비를 위한 뜻깊은 대청소 봉사활동을 진행했습니다.
+        </p>
+        <p class="mb-6">
+            이날 단원들은 한마음 한뜻으로 팔을 걷어붙이고 송천리 곳곳의 환경정비 취약구역을 돌며 구슬땀을 흘렸습니다. 마을 길가에 방치된 쓰레기를 줍고 주변을 깨끗하게 정비하며, 쾌적하고 살기 좋은 송천리를 만들기 위해 모두가 힘을 모았습니다.
+        </p>
+        <p>
+            힘든 청소 작업 속에서도 깨끗해지는 거리를 보며 단원들의 얼굴에는 보람찬 미소가 가득했던 뜻깊은 하루였습니다.
+        </p>
+        <p>
+            앞으로도 저희 은빛금빛 봉사단은 지역 사회 곳곳에 도움이 필요한 곳을 찾아가 행동으로 실천하는 봉사를 이어가겠습니다. 은빛이 금빛으로 변하듯 우리 사회가 더욱 밝아질 수 있도록, 앞으로의 활동에도 많은 응원 부탁드립니다. 감사합니다!
+        </p>
+    </div>
+
+    <!-- ★ 동적 이전글/다음글 네비게이션 영역 ★ -->
+    <!-- 현재 페이지의 파일명을 data-current-file 에 적어줍니다. -->
+    <div id="dynamic-nav-container" data-current-file="sc.html" class="mt-8 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between gap-4">
+        <div class="text-center text-gray-400 w-full py-4">페이지 이동 링크를 불러오는 중입니다...</div>
+    </div>
+
+    <!-- 네비게이션 자동 생성 스크립트 -->
+    <script>
+    (function() {
+        const container = document.getElementById('dynamic-nav-container');
+        if (!container) return;
+        
+        // 1. 위 HTML 태그에 적어둔 현재 파일명을 가져옵니다.
+        const currentLink = container.getAttribute('data-current-file');
+
+        // 미리보기 환경 대응용 예비 데이터
+        const fallbackData = [
+            { "id": 3, "title": "깨끗한 우리 동네 만들기", "date": "2025-10-20", "link": "activity3.html" },
+            { "id": 2, "title": "행복한 빵 나눔터 후기", "date": "2025-11-01", "link": "activity2.html" },
+            { "id": 1, "title": "따뜻한 겨울나기 연탄 나눔 후기", "date": "2025-11-15", "link": "activity1.html" }
+        ];
+
+        // 2. board.json 파일 불러오기
+        let loadData;
+        try {
+            loadData = fetch('asset/board.json').then(res => {
+                if (!res.ok) throw new Error("Network Error");
+                return res.json();
+            });
+        } catch (e) {
+            loadData = Promise.resolve(fallbackData);
+        }
+
+        loadData.catch(() => fallbackData).then(data => {
+            // 3. 전체 목록에서 현재 페이지의 위치(인덱스)를 찾습니다.
+            const currentIndex = data.findIndex(item => item.link === currentLink);
+            
+            if (currentIndex === -1) {
+                container.innerHTML = '<div class="text-center w-full text-gray-500">네비게이션을 불러올 수 없습니다.</div>';
+                return;
+            }
+
+            // JSON 배열은 최신글이 맨 위(0번)에 있습니다.
+            // 따라서 다음 활동(최신글)은 번호가 -1 인덱스이고, 이전 활동(과거글)은 +1 인덱스입니다.
+            const nextItem = currentIndex > 0 ? data[currentIndex - 1] : null;
+            const prevItem = currentIndex < data.length - 1 ? data[currentIndex + 1] : null;
+
+            let html = '';
+
+            // 이전글(과거글) 버튼 렌더링
+            if (prevItem) {
+                html += `
+                    <a href="?page=${prevItem.link.replace('.html','')}" hx-get="${prevItem.link}" hx-target="#main-content" hx-push-url="?page=${prevItem.link.replace('.html','')}" hx-swap="innerHTML show:window:top" class="flex-1 flex items-center justify-start p-4 rounded-xl hover:bg-gray-50 transition-all border border-gray-100 shadow-sm group">
+                        <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-500 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        <div class="text-left overflow-hidden">
+                            <div class="text-xs font-semibold text-gray-400 mb-1">이전 활동</div>
+                            <div class="font-medium text-gray-800 group-hover:text-blue-600 truncate">${prevItem.title}</div>
+                        </div>
+                    </a>
+                `;
+            } else {
+                html += `<div class="flex-1 p-4 border border-transparent"></div>`; // 공간 유지용 빈 박스
+            }
+
+            // 목록 버튼 렌더링
+            html += `
+                <div class="flex items-center justify-center px-2 py-4 md:py-0">
+                    <a href="?page=board_activities" hx-get="board_activities.html" hx-target="#main-content" hx-push-url="?page=board_activities" hx-swap="innerHTML show:window:top" class="px-6 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-sm font-bold transition-colors whitespace-nowrap shadow-sm">
+                        목록으로
+                    </a>
+                </div>
+            `;
+
+            // 다음글(최신글) 버튼 렌더링
+            if (nextItem) {
+                html += `
+                    <a href="?page=${nextItem.link.replace('.html','')}" hx-get="${nextItem.link}" hx-target="#main-content" hx-push-url="?page=${nextItem.link.replace('.html','')}" hx-swap="innerHTML show:window:top" class="flex-1 flex items-center justify-end p-4 rounded-xl hover:bg-gray-50 transition-all border border-gray-100 shadow-sm group text-right">
+                        <div class="text-right overflow-hidden">
+                            <div class="text-xs font-semibold text-gray-400 mb-1">다음 활동</div>
+                            <div class="font-medium text-gray-800 group-hover:text-blue-600 truncate">${nextItem.title}</div>
+                        </div>
+                        <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-500 ml-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                `;
+            } else {
+                html += `<div class="flex-1 p-4 border border-transparent"></div>`; // 공간 유지용 빈 박스
+            }
+
+            container.innerHTML = html;
+
+            // HTMX 이벤트 바인딩 (새로 그려진 링크들이 SPA처럼 작동하도록 함)
+            if (typeof htmx !== 'undefined') {
+                htmx.process(container);
+            }
+        });
+    })();
+    </script>
+</div>
