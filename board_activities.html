@@ -123,7 +123,7 @@
         }
 
         // 새롭게 만든 JSON 파일에서 데이터를 가져옵니다.
-        fetch('asset/activity_board.json')
+        fetch('asset/board.json')
             .then(response => {
                 if (!response.ok) throw new Error('네트워크 응답이 올바르지 않습니다.');
                 return response.json();
