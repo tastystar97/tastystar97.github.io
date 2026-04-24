@@ -249,44 +249,47 @@
 
 
     <!-- 홈 화면 전용 스크립트 (HTMX로 로드될 때마다 실행됨) -->
-    <script>
+<script>
     (function(){
-        const activeMain = document.getElementById('main-content');
-        if(!activeMain) return;
+        // HTMX로 로드되는 영역(#main-content)을 기준으로 요소를 찾습니다.
+        // SPA 환경에서는 document 대신 렌더링된 컨테이너 내부를 탐색하는 것이 안전합니다.
+        const activeMain = document.getElementById('main-content') || document;
 
-// 1. Marquee 띠지 렌더링 로직
-        // members.js 파일에 있는 volunteerMembers 변수를 사용하도록 변경
+        // 1. Marquee 띠지 렌더링 로직 (오류 수정됨)
         const members = typeof volunteerMembers !== 'undefined' ? volunteerMembers : [];
         const mq1 = activeMain.querySelector('#marquee-content-1');
         const mq2 = activeMain.querySelector('#marquee-content-2');
+        
         if (mq1 && mq2) {
             let html = '<span class="mx-5 font-bold text-yellow-300 text-lg">✨ 함께하는 봉사단원</span>';
             members.forEach((m, i) => {
                 html += `<span class="mx-5 font-medium">${m}</span>`;
-if (mq1 && mq2) {
-            let html = '<span class="mx-5 font-bold text-yellow-300 text-lg">✨ 함께하는 봉사단원</span>';
-            members.forEach((m, i) => {
-                html += `<span class="mx-5 font-medium">${m}</span>`;
+                // 마지막 멤버가 아니면 구분점 추가
                 if(i < members.length - 1) html += `<span class="text-blue-400 text-xs">●</span>`;
             });
-            mq1.innerHTML = html; mq2.innerHTML = html;
+            mq1.innerHTML = html; 
+            mq2.innerHTML = html;
 
-            // 👇 새로 추가된 부분: 명단 수에 따라 애니메이션 속도를 동적으로 조절
-            // 멤버 1명당 0.8초의 시간을 부여하여 일정한 이동 속도를 유지합니다.
+            // 명단 수에 따라 애니메이션 속도를 동적으로 조절
             const animationTime = members.length * 0.8; 
             mq1.style.animationDuration = `${animationTime}s`;
             mq2.style.animationDuration = `${animationTime}s`;
         }
 
-        // 2. 히어로 배너 슬라이더
+        // 2. 히어로 배너 슬라이더 복구
         const slides = activeMain.querySelectorAll('.slide-image');
         const dotsContainer = activeMain.querySelector('#slider-dots');
+        
         if(slides.length > 0 && dotsContainer) {
             let cSlide = 0;
             dotsContainer.innerHTML = ''; // 초기화
+            
             slides.forEach((_, i) => {
                 let d = document.createElement('button');
-                d.className = i===0 ? 'w-8 h-3 rounded-full bg-white opacity-100 transition-all' : 'w-3 h-3 rounded-full bg-white opacity-50 transition-all';
+                d.className = i === 0 
+                    ? 'w-8 h-3 rounded-full bg-white opacity-100 transition-all' 
+                    : 'w-3 h-3 rounded-full bg-white opacity-50 transition-all';
+                
                 d.onclick = () => {
                     slides[cSlide].classList.remove('active');
                     dotsContainer.children[cSlide].className = 'w-3 h-3 rounded-full bg-white opacity-50 transition-all';
@@ -296,8 +299,13 @@ if (mq1 && mq2) {
                 };
                 dotsContainer.appendChild(d);
             });
-            setInterval(() => {
-                if(!document.contains(dotsContainer)) return; // 페이지 변경 시 인터벌 안전종료
+            
+            // 페이지 변경 시 타이머를 완전히 정리(clearInterval)하여 겹침 현상 방지
+            const sliderInterval = setInterval(() => {
+                if(!document.contains(dotsContainer)) {
+                    clearInterval(sliderInterval);
+                    return; 
+                }
                 slides[cSlide].classList.remove('active');
                 dotsContainer.children[cSlide].className = 'w-3 h-3 rounded-full bg-white opacity-50 transition-all';
                 cSlide = (cSlide + 1) % slides.length;
@@ -309,7 +317,6 @@ if (mq1 && mq2) {
         // 3. 팝업 슬라이더 로직
         const popup = activeMain.querySelector('#event-popup');
         if (popup) {
-            // 오늘 하루 안보기 체크
             const hideDate = localStorage.getItem('hidePopupDate');
             const today = new Date().toISOString().split('T')[0];
             if (hideDate !== today) popup.classList.remove('hidden');
@@ -328,11 +335,16 @@ if (mq1 && mq2) {
                 });
             };
 
-            activeMain.querySelector('#popup-prev').onclick = () => { pIndex = (pIndex - 1 + pSlides.length) % pSlides.length; updatePopup(); };
-            activeMain.querySelector('#popup-next').onclick = () => { pIndex = (pIndex + 1) % pSlides.length; updatePopup(); };
+            const prevBtn = activeMain.querySelector('#popup-prev');
+            const nextBtn = activeMain.querySelector('#popup-next');
+            const closeBtn = activeMain.querySelector('#close-popup-btn');
+
+            if (prevBtn) prevBtn.onclick = () => { pIndex = (pIndex - 1 + pSlides.length) % pSlides.length; updatePopup(); };
+            if (nextBtn) nextBtn.onclick = () => { pIndex = (pIndex + 1) % pSlides.length; updatePopup(); };
             
-            activeMain.querySelector('#close-popup-btn').onclick = () => {
-                if (activeMain.querySelector('#dont-show-today').checked) {
+            if (closeBtn) closeBtn.onclick = () => {
+                const dontShow = activeMain.querySelector('#dont-show-today');
+                if (dontShow && dontShow.checked) {
                     localStorage.setItem('hidePopupDate', today);
                 }
                 popup.classList.add('hidden');
